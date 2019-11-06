@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>722135198146-9jb6udocai82213utg0hrhj4e6tmvp5i.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.722135198146-9jb6udocai82213utg0hrhj4e6tmvp5i</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDIjQHQ63Xm3mqUA2cRucWz2E4QKMmlTy0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>722135198146</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.gglobalapps.amzme</string>
+	<key>PROJECT_ID</key>
+	<string>amzteste1</string>
+	<key>STORAGE_BUCKET</key>
+	<string>amzteste1.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:722135198146:ios:e5b3b252ecbc739c</string>
+	<key>DATABASE_URL</key>
+	<string>https://amzteste1.firebaseio.com</string>
+</dict>
+</plist>
