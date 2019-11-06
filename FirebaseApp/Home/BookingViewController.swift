@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Firebase
+
 
 
 class BookingViewController: UIViewController {
     var ref:Post?
     var botoes : [String]!
     var refdate: Date!
+    var delegate:NewPostVCDelegate?
     @IBOutlet weak var HostImage: UIImageView!
     @IBOutlet weak var HostName: UILabel!
     @IBOutlet weak var HostGrad: UIImageView!
@@ -132,6 +135,35 @@ class BookingViewController: UIViewController {
     }
     
     @IBAction func BookingClick(_ sender: Any) {
+        var refp: DatabaseReference!
+        refp = Database.database().reference()
+        guard let userProfile = UserService.currentUserProfile else { return }
+        let postRef = refp.child("posts").childByAutoId()
+
+        
+        let postObject = [
+            "author": [
+                "uid": userProfile.uid,
+                "username": userProfile.username,
+                "photoURL": userProfile.photoURL.absoluteString,
+                "city": userProfile.city,
+                "description": ObservationText.text!,
+                "languages": userProfile.languages,
+                "usrfee": Sumcount.text! ,
+                "avaliability": botoes!,
+                "typeuser": "3",
+                "typefee": ref?.author.typefee ?? "3"
+            ],
+            "timestamp": [".sv":"timestamp"],"typepost": "1"
+            ] as [String:Any]
+        
+        postRef.setValue(postObject, withCompletionBlock: { error, ref in
+            if error == nil {
+                self.delegate?.didUploadPost(withID: ref.key!)
+            } else {
+                // Handle the error
+            }
+        })
         //ref?.author.uid
         //ref?.author.uid
     }
