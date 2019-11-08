@@ -31,9 +31,9 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
         if lastPost != nil {
             let lastTimestamp = lastPost!.createdAt.timeIntervalSince1970 * 1000
             queryRef = postsRef.queryOrdered(byChild: "timestamp").queryEnding(atValue: lastTimestamp)
-            //.queryEqual(toValue: <#T##Any?#>)
+            queryRef = queryRef.queryEqual(toValue: "1", childKey: "typepost")
         } else {
-            queryRef = postsRef.queryOrdered(byChild: "timestamp")
+            queryRef = postsRef.queryOrdered(byChild: "timestamp").queryEqual(toValue: "1", childKey: "typepost")
         }
         return queryRef
     }

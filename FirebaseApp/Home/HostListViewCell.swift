@@ -46,6 +46,8 @@ class HostListViewCell: UITableViewCell  {
         Star4.alpha = 1
         Star5.alpha = 1
         AvaliationCount.text = "(100)"
+        Day.text = post.author.avaliability[0]
+        Hours.text = post.author.avaliability[1]
         var langs = post.author.languages.replacingOccurrences(of: " ", with: "")
         let lenlang = langs.count
         var i = 1

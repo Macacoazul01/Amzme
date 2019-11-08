@@ -16,6 +16,7 @@ class BookingViewController: UIViewController {
     var botoes : [String]!
     var refdate: Date!
     var delegate:NewPostVCDelegate?
+    var chosenone:Int!
     @IBOutlet weak var HostImage: UIImageView!
     @IBOutlet weak var HostName: UILabel!
     @IBOutlet weak var HostGrad: UIImageView!
@@ -74,9 +75,6 @@ class BookingViewController: UIViewController {
                    button.isEnabled = false
                     button.alpha = 0.5
                 }
-                //else{
-                    //button.backgroundColor = UIColor(red: 47/255, green: 172/255, blue: 73/255, alpha: 1.0)
-                //}
             }
             i+=1;
         }
@@ -124,6 +122,13 @@ class BookingViewController: UIViewController {
             if button.backgroundColor == nil{
                 botoes[sender.tag-1] = "1"
                 button.backgroundColor = UIColor(red: 47/255, green: 172/255, blue: 73/255, alpha: 1.0)
+                if chosenone != nil {
+                    botoes[chosenone] = "0"
+                    if let escolhido = self.view.viewWithTag(chosenone+1) as? UIButton{
+                        escolhido.backgroundColor = nil
+                    }
+                }
+                chosenone = sender.tag-1
             }
             else{
                 botoes[sender.tag-1]="0"
@@ -140,7 +145,6 @@ class BookingViewController: UIViewController {
         guard let userProfile = UserService.currentUserProfile else { return }
         let postRef = refp.child("posts").childByAutoId()
 
-        
         let postObject = [
             "author": [
                 "uid": userProfile.uid,
@@ -164,11 +168,48 @@ class BookingViewController: UIViewController {
                 // Handle the error
             }
         })
-        //ref?.author.uid
-        //ref?.author.uid
     }
     func isNumeric(a: String) -> Bool {
       return Double(a) != nil
+    }
+    func define(a: Int){
+        if let theLabel = self.view.viewWithTag(a) as? UILabel {
+            botoes[0]=theLabel.text!
+        }
+        if let escolhido = self.view.viewWithTag(chosenone+1) as? UIButton{
+            botoes[1]=escolhido.currentTitle!
+        }
+    }
+    func find1(){
+        let i:Int
+        if 0<=self.chosenone && self.chosenone<=7 {
+            i=200
+        }
+        else if 8<=self.chosenone && self.chosenone<=15 {
+            i=201
+        }
+        else if 16<=self.chosenone && self.chosenone<=23 {
+            i=202
+        }
+        else if 24<=self.chosenone && self.chosenone<=31 {
+            i=203
+        }
+        else if 32<=self.chosenone && self.chosenone<=39 {
+            i=204
+        }
+        else if 40<=self.chosenone && self.chosenone<=47 {
+            i=205
+        }
+        else if 48<=self.chosenone && self.chosenone<=55 {
+            i=206
+        }
+        else{
+            let alert = UIAlertController(title: "Choose a date", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return;
+        }
+        define(a: i)
     }
     
 }
