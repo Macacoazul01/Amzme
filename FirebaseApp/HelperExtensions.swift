@@ -1,5 +1,3 @@
-
-
 import Foundation
 import UIKit
 func lineDraw(viewLi:UIView)

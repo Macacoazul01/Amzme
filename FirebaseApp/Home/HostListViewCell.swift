@@ -1,11 +1,3 @@
-//
-//  HostListViewController.swift
-//  FirebaseApp
-//
-//  Created by Adm on 30/10/19.
-//  Copyright © 2019 Robert Canton. All rights reserved.
-//
-
 import UIKit
 
 class HostListViewCell: UITableViewCell  {

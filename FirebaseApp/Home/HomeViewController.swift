@@ -6,6 +6,7 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
     
     
     @IBOutlet weak var ProfileButton: UIBarButtonItem!
+    var typeposts:String!
     var tableView:UITableView!
     var cellHeights: [IndexPath : CGFloat] = [:]
     var namenib:String!
@@ -53,10 +54,11 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let userProfile = UserService.currentUserProfile?.typeuser ?? "3"
+        let teste = UserService.currentUserProfile
+        typeposts = teste?.typeuser ?? "3"
         tableView = UITableView(frame: view.bounds, style: .plain)
         tableView.backgroundColor = UIColor(white: 0.90,alpha:1.0)
-        if userProfile == "3"{
+        if typeposts == "3"{
             namenib = "UserListViewCell"
         }
         else {

@@ -1,11 +1,3 @@
-//
-//  BookingViewController.swift
-//  FirebaseApp
-//
-//  Created by Adm on 19/10/19.
-//  Copyright © 2019 Robert Canton. All rights reserved.
-//
-
 import UIKit
 import Firebase
 
@@ -233,7 +225,6 @@ extension BookingViewController : SWComboxViewDelegate {
     func comboxOpened(isOpen: Bool, combox: SWComboxView) {
     }
     
-    //MARK: delegate
     func comboxSelected(atIndex index:Int, object: Any, combox withCombox: SWComboxView) {
         let tax:String = ref?.author.usrfee ?? "0"
         let texto:String = object as! String
