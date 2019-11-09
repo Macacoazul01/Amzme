@@ -25,16 +25,27 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
     var postsRef:DatabaseReference {
         return Database.database().reference().child("posts")
     }
-    
+    //falta conseguir fazer a query filtrar pelo valor do user, ainda ta dando erro
+    //existem algumas variacoes comentadas e o filtro pelo tipouser ta feito mas ainda nao consigo fazer pegar
     var oldPostsQuery:DatabaseQuery {
         var queryRef:DatabaseQuery
         let lastPost = posts.last
+        let value:String
+        if typeposts == "3"{
+            value = "1"
+        }
+        else {
+            value = "2"
+        }
         if lastPost != nil {
             let lastTimestamp = lastPost!.createdAt.timeIntervalSince1970 * 1000
             queryRef = postsRef.queryOrdered(byChild: "timestamp").queryEnding(atValue: lastTimestamp)
-            queryRef = queryRef.queryEqual(toValue: "1", childKey: "typepost")
+            //queryRef = queryRef.queryEqual(toValue: value, childKey: "typepost")
         } else {
-            queryRef = postsRef.queryOrdered(byChild: "timestamp").queryEqual(toValue: "1", childKey: "typepost")
+            queryRef = postsRef.queryOrdered(byChild: "timestamp")
+            //queryRef = postsRef.queryEqual(toValue: value, childKey: "typepost")
+            //queryRef = queryRef.queryOrdered(byChild: "timestamp")
+            //queryRef = postsRef.queryEqual(toValue: value, childKey: "typepost").queryOrdered(byChild: "timestamp")
         }
         return queryRef
     }
@@ -42,10 +53,19 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
     var newPostsQuery:DatabaseQuery {
         var queryRef:DatabaseQuery
         let firstPost = posts.first
+        let value:String
+        if typeposts == "3"{
+            value = "1"
+        }
+        else {
+            value = "2"
+        }
         if firstPost != nil {
             let firstTimestamp = firstPost!.createdAt.timeIntervalSince1970 * 1000
             queryRef = postsRef.queryOrdered(byChild: "timestamp").queryStarting(atValue: firstTimestamp)
+            //queryRef = queryRef.queryEqual(toValue: value, childKey: "typepost")
         } else {
+            //queryRef = postsRef.queryOrdered(byChild:"typepost").queryEqual(toValue:value)
             queryRef = postsRef.queryOrdered(byChild: "timestamp")
         }
         return queryRef
@@ -54,6 +74,11 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         let teste = UserService.currentUserProfile
         typeposts = teste?.typeuser ?? "3"
         tableView = UITableView(frame: view.bounds, style: .plain)
@@ -62,7 +87,9 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
             namenib = "UserListViewCell"
         }
         else {
-            namenib = "HostListViewCell"
+            //namenib = "HostListViewCell"
+            //enquanto nao corrigir os erros vai ficar assim
+            namenib = "UserListViewCell"
         }
         let cellNib = UINib(nibName: namenib, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "postCell")
@@ -112,12 +139,6 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
         
         //observePosts()
         beginBatchFetch()
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
         listenForNewPosts()
     }
     
