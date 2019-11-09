@@ -278,7 +278,8 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
             
             if snapshot.key != self.posts.first?.id,
                 let data = snapshot.value as? [String:Any],
-                let post = Post.parse(snapshot.key, data) {
+                //let post =Post.parse(snapshot.key, data)
+                (Post.parse(snapshot.key, data) != nil) {
                 
                 self.stopListeningForNewPosts()
                 

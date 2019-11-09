@@ -147,7 +147,7 @@ class BookingViewController: UIViewController {
 
         let postObject = [
             "author": [
-                "uid": userProfile.uid,
+                "uid": ref?.author.uid as Any,
                 "username": userProfile.username,
                 "photoURL": userProfile.photoURL.absoluteString,
                 "city": userProfile.city,

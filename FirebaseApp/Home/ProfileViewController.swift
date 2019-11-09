@@ -344,14 +344,13 @@ class ProfileViewController: UIViewController, UITextViewDelegate {
         ref = Database.database().reference()
         guard let userProfile = UserService.currentUserProfile else { return }
         
-        if let storageRef = Storage.storage().reference().child("user/\(userProfile.uid)") as?  StorageReference{
-            storageRef.delete{ error in
-                if error != nil {
-                    print("avisar")
-                }
+        let storageRef = Storage.storage().reference().child("user/\(userProfile.uid)")
+        storageRef.delete{ error in
+            if error != nil {
+                print("avisar")
             }
-            
         }
+        
         guard let image = profileImageView.image else { return }
         uploadProfileImage(image) { (url) in
             if url != nil {

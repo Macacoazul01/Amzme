@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         // Override point for customization after application launch.
-        
-        let authListener = Auth.auth().addStateDidChangeListener { auth, user in
+        //let authListener = 
+        Auth.auth().addStateDidChangeListener { auth, user in
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
