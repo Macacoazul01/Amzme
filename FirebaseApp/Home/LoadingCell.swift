@@ -10,7 +10,7 @@ class LoadingCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        spinner = UIActivityIndicatorView(style: .gray)
+        spinner = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         addSubview(spinner)
         spinner.translatesAutoresizingMaskIntoConstraints = false
         spinner.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true

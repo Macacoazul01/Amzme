@@ -31,7 +31,7 @@ class LoginViewController:UIViewController, UITextFieldDelegate {
         view.addSubview(continueButton)
         setContinueButton(enabled: false)
         
-        activityView = UIActivityIndicatorView(style: .gray)
+        activityView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         activityView.color = secondaryColor
         activityView.frame = CGRect(x: 0, y: 0, width: 50.0, height: 50.0)
         activityView.center = continueButton.center
