@@ -158,7 +158,7 @@ class BookingViewController: UIViewController {
                 "typeuser": "3",
                 "typefee": ref?.author.typefee ?? "3"
             ],
-            "timestamp": [".sv":"timestamp"],"typepost": "1"
+            "timestamp": [".sv":"timestamp"],"typepost": "2"
             ] as [String:Any]
         
         postRef.setValue(postObject, withCompletionBlock: { error, ref in

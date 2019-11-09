@@ -54,8 +54,6 @@ class SignUpViewController:UIViewController, UITextFieldDelegate {
         profileImageView.addGestureRecognizer(imageTap)
         profileImageView.layer.cornerRadius = profileImageView.bounds.height / 2
         profileImageView.clipsToBounds = true
-        //tapToChangeProfileButton.addTarget(self, action: #selector(openImagePicker), for: .touchUpInside)
-        
         imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = true
         imagePicker.sourceType = .photoLibrary
@@ -93,11 +91,6 @@ class SignUpViewController:UIViewController, UITextFieldDelegate {
         self.dismiss(animated: false, completion: nil)
     }
     
-    /**
-     Adjusts the center of the **continueButton** above the keyboard.
-     - Parameter notification: Contains the keyboardFrame info.
-     */
-    
     @objc func keyboardWillAppear(notification: NSNotification){
         
         let info = notification.userInfo!
@@ -107,12 +100,6 @@ class SignUpViewController:UIViewController, UITextFieldDelegate {
                                         y: view.frame.height - keyboardFrame.height - 16.0 - continueButton.frame.height / 2)
         activityView.center = continueButton.center
     }
-    
-    /**
-     Enables the continue button if the **username**, **email**, and **password** fields are all non-empty.
-     
-     - Parameter target: The targeted **UITextField**.
-     */
     
     @objc func textFieldChanged(_ target:UITextField) {
         let username = usernameField.text
@@ -146,10 +133,6 @@ class SignUpViewController:UIViewController, UITextFieldDelegate {
         return true
     }
     
-    /**
-     Enables or Disables the **continueButton**.
-     */
-    
     func setContinueButton(enabled:Bool) {
         if enabled {
             continueButton.alpha = 1.0
@@ -165,6 +148,8 @@ class SignUpViewController:UIViewController, UITextFieldDelegate {
         guard let email = emailField.text else { return }
         guard let pass = passwordField.text else { return }
         guard let image = profileImageView.image else { return }
+        //if isValidEmail(emailStr: email) && isValidPassword(passStr: pass){
+            
         
         setContinueButton(enabled: false)
         continueButton.setTitle("", for: .normal)
@@ -214,8 +199,21 @@ class SignUpViewController:UIViewController, UITextFieldDelegate {
                 self.resetForm()
             }
         }
+        //}
+        //else{
+        //    self.resetForm()
+        //}
     }
-    
+    public func isValidPassword(passStr:String) -> Bool {
+        let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[d$@$!%*?&#])[A-Za-z\\dd$@$!%*?&#]{8,}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", passwordRegex)
+        return emailPred.evaluate(with: passStr)
+    }
+    func isValidEmail(emailStr:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: emailStr)
+    }
     func resetForm() {
         let alert = UIAlertController(title: "Error signing up", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
