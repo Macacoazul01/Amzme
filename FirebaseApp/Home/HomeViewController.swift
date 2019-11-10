@@ -30,22 +30,11 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
     var oldPostsQuery:DatabaseQuery {
         var queryRef:DatabaseQuery
         let lastPost = posts.last
-        let value:String
-        if typeposts == "3"{
-            value = "1"
-        }
-        else {
-            value = "2"
-        }
         if lastPost != nil {
             let lastTimestamp = lastPost!.createdAt.timeIntervalSince1970 * 1000
             queryRef = postsRef.queryOrdered(byChild: "timestamp").queryEnding(atValue: lastTimestamp)
-            //queryRef = queryRef.queryEqual(toValue: value, childKey: "typepost")
         } else {
             queryRef = postsRef.queryOrdered(byChild: "timestamp")
-            //queryRef = postsRef.queryEqual(toValue: value, childKey: "typepost")
-            //queryRef = queryRef.queryOrdered(byChild: "timestamp")
-            //queryRef = postsRef.queryEqual(toValue: value, childKey: "typepost").queryOrdered(byChild: "timestamp")
         }
         return queryRef
     }
@@ -53,19 +42,10 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
     var newPostsQuery:DatabaseQuery {
         var queryRef:DatabaseQuery
         let firstPost = posts.first
-        let value:String
-        if typeposts == "3"{
-            value = "1"
-        }
-        else {
-            value = "2"
-        }
         if firstPost != nil {
             let firstTimestamp = firstPost!.createdAt.timeIntervalSince1970 * 1000
             queryRef = postsRef.queryOrdered(byChild: "timestamp").queryStarting(atValue: firstTimestamp)
-            //queryRef = queryRef.queryEqual(toValue: value, childKey: "typepost")
         } else {
-            //queryRef = postsRef.queryOrdered(byChild:"typepost").queryEqual(toValue:value)
             queryRef = postsRef.queryOrdered(byChild: "timestamp")
         }
         return queryRef
@@ -125,7 +105,6 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
         }
         refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
         
-        
         seeNewPostsButton = SeeNewPostsButton()
         view.addSubview(seeNewPostsButton)
         seeNewPostsButton.translatesAutoresizingMaskIntoConstraints = false
@@ -134,10 +113,8 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
         seeNewPostsButtonTopAnchor.isActive = true
         seeNewPostsButton.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
         seeNewPostsButton.widthAnchor.constraint(equalToConstant: seeNewPostsButton.button.bounds.width).isActive = true
-        
         seeNewPostsButton.button.addTarget(self, action: #selector(handleRefresh), for: .touchUpInside)
         
-        //observePosts()
         beginBatchFetch()
         listenForNewPosts()
     }
@@ -169,20 +146,26 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
     
     @objc func handleRefresh() {
         print("Refresh!")
-        
+        let value:String
+        if typeposts == "3"{
+            value = "1"
+        }
+        else {
+            value = "2"
+        }
         toggleSeeNewPostsButton(hidden: true)
         
         newPostsQuery.queryLimited(toFirst: 20).observeSingleEvent(of: .value, with: { snapshot in
             var tempPosts = [Post]()
-            
             let firstPost = self.posts.first
             for child in snapshot.children {
                 if let childSnapshot = child as? DataSnapshot,
                     let data = childSnapshot.value as? [String:Any],
                     let post = Post.parse(childSnapshot.key, data),
                     childSnapshot.key != firstPost?.id {
-                    
-                    tempPosts.insert(post, at: 0)
+                    if post.typepost  == value {
+                        tempPosts.insert(post, at: 0)
+                    }
                 }
             }
             
@@ -202,7 +185,13 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func fetchPosts(completion:@escaping (_ posts:[Post])->()) {
-        
+        let value:String
+        if typeposts == "3"{
+            value = "1"
+        }
+        else {
+            value = "2"
+        }
         oldPostsQuery.queryLimited(toLast: 20).observeSingleEvent(of: .value, with: { snapshot in
             var tempPosts = [Post]()
             
@@ -212,8 +201,9 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
                     let data = childSnapshot.value as? [String:Any],
                     let post = Post.parse(childSnapshot.key, data),
                     childSnapshot.key != lastPost?.id {
-                    
-                    tempPosts.insert(post, at: 0)
+                    if post.typepost  == value {
+                        tempPosts.insert(post, at: 0)
+                    }
                 }
             }
             
