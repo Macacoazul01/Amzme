@@ -24,7 +24,7 @@ class SeeNewPostsButton:UIView {
         button.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14.0, weight: .medium)
         
-        button.setTitle("See New Posts", for: .normal)
+        button.setTitle("See New Hosts", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.contentEdgeInsets = UIEdgeInsets.init(top: 0, left: 16, bottom: 0, right: 16)
         button.backgroundColor = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 1.0)

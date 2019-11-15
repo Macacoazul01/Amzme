@@ -22,6 +22,7 @@
 		507897872329B87C00957EC8 /* SWComboxTextSelection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5078977D2329B87C00957EC8 /* SWComboxTextSelection.xib */; };
 		507897882329B87C00957EC8 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5078977E2329B87C00957EC8 /* NibView.swift */; };
 		50D26409230E0F930082522A /* UserListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50D26408230E0F930082522A /* UserListViewCell.xib */; };
+		7BC86CDE237ED9D30064A6F0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC86CDD237ED9D30064A6F0 /* SettingsViewController.swift */; };
 		7BDA70BC236E2FE2004D3079 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BDA70BB236E2FE2004D3079 /* GoogleService-Info.plist */; };
 		A532550CD0244022A8D278B5 /* Pods_FirebaseApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F272F2CC379BF3D39E51153 /* Pods_FirebaseApp.framework */; };
 		B02B8CFD2229A82500BB76CC /* SeeNewPostsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B8CFC2229A82400BB76CC /* SeeNewPostsButton.swift */; };
@@ -61,6 +62,7 @@
 		5078977E2329B87C00957EC8 /* NibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
 		50D26408230E0F930082522A /* UserListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserListViewCell.xib; sourceTree = "<group>"; };
 		6580728F4CE95C2C81CE978D /* Pods-FirebaseApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseApp/Pods-FirebaseApp.debug.xcconfig"; sourceTree = "<group>"; };
+		7BC86CDD237ED9D30064A6F0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7BDA70BB236E2FE2004D3079 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8F272F2CC379BF3D39E51153 /* Pods_FirebaseApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B02B8CFC2229A82400BB76CC /* SeeNewPostsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeNewPostsButton.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				5034C346235B44EA0033D8F2 /* BookingViewController.swift */,
 				50000BEC236A4147000CC434 /* HostListViewCell.swift */,
 				50000BED236A4147000CC434 /* HostListViewCell.xib */,
+				7BC86CDD237ED9D30064A6F0 /* SettingsViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				B08C14E8202CE5EF0061819B /* Post.swift in Sources */,
 				B0330FFE2031700E00FE2203 /* ImageService.swift in Sources */,
 				507897862329B87C00957EC8 /* SWComboxImageSelection.swift in Sources */,
+				7BC86CDE237ED9D30064A6F0 /* SettingsViewController.swift in Sources */,
 				5034C347235B44EA0033D8F2 /* BookingViewController.swift in Sources */,
 				507897852329B87C00957EC8 /* UIViewEx.swift in Sources */,
 			);

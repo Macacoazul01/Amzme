@@ -142,18 +142,15 @@ class LoginViewController:UIViewController, UITextFieldDelegate {
             if error == nil && user != nil {
                 self.dismiss(animated: false, completion: nil)
             } else {
-                print("Error logging in: \(error!.localizedDescription)")
-                
-                self.resetForm()
+                self.resetForm(why: error!.localizedDescription)
             }
         }
     }
     
-    func resetForm() {
-        let alert = UIAlertController(title: "Error logging in", message: nil, preferredStyle: .alert)
+    func resetForm(why:String) {
+        let alert = UIAlertController(title: why, message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
-        
         setContinueButton(enabled: true)
         continueButton.setTitle("Continue", for: .normal)
         activityView.stopAnimating()

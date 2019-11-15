@@ -25,8 +25,7 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
     var postsRef:DatabaseReference {
         return Database.database().reference().child("posts")
     }
-    //falta conseguir fazer a query filtrar pelo valor do user, ainda ta dando erro
-    //existem algumas variacoes comentadas e o filtro pelo tipouser ta feito mas ainda nao consigo fazer pegar
+    
     var oldPostsQuery:DatabaseQuery {
         var queryRef:DatabaseQuery
         let lastPost = posts.last
@@ -288,10 +287,8 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
         stopListeningForNewPosts()
         
         postListenerHandle = newPostsQuery.observe(.childAdded, with: { snapshot in
-            
             if snapshot.key != self.posts.first?.id,
                 let data = snapshot.value as? [String:Any],
-                //let post =Post.parse(snapshot.key, data)
                 (Post.parse(snapshot.key, data) != nil) {
                 
                 self.stopListeningForNewPosts()

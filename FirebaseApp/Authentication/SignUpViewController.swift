@@ -177,26 +177,22 @@ class SignUpViewController:UIViewController, UITextFieldDelegate {
                                     if success {
                                         self.dismiss(animated: true, completion: nil)
                                     } else {
-                                        print("Error: \(error!.localizedDescription)")
-                                        self.resetForm()
+                                        self.resetForm(why: error!.localizedDescription)
                                     }
                                 }
                                 
                             } else {
-                                print("Error: \(error!.localizedDescription)")
-                                self.resetForm()
+                                self.resetForm(why: error!.localizedDescription)
                             }
                         }
                     } else {
-                        print("Error: \(error!.localizedDescription)")
-                        self.resetForm()
+                        self.resetForm(why: error!.localizedDescription)
                     }
                     
                 }
                 
             } else {
-                print("Error: \(error!.localizedDescription)")
-                self.resetForm()
+                self.resetForm(why: error!.localizedDescription)
             }
         }
         //}
@@ -214,8 +210,8 @@ class SignUpViewController:UIViewController, UITextFieldDelegate {
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: emailStr)
     }
-    func resetForm() {
-        let alert = UIAlertController(title: "Error signing up", message: nil, preferredStyle: .alert)
+    func resetForm(why:String) {
+        let alert = UIAlertController(title: why, message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         

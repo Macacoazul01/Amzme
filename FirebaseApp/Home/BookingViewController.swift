@@ -134,6 +134,7 @@ class BookingViewController: UIViewController {
     @IBAction func BookingClick(_ sender: Any) {
         var refp: DatabaseReference!
         refp = Database.database().reference()
+        if find1() == false {return}
         guard let userProfile = UserService.currentUserProfile else { return }
         let postRef = refp.child("posts").childByAutoId()
 
@@ -157,7 +158,6 @@ class BookingViewController: UIViewController {
             if error == nil {
                 self.delegate?.didUploadPost(withID: ref.key!)
             } else {
-                // Handle the error
             }
         })
     }
@@ -172,38 +172,41 @@ class BookingViewController: UIViewController {
             botoes[1]=escolhido.currentTitle!
         }
     }
-    func find1(){
-        let i:Int
-        if 0<=self.chosenone && self.chosenone<=7 {
-            i=200
-        }
-        else if 8<=self.chosenone && self.chosenone<=15 {
-            i=201
-        }
-        else if 16<=self.chosenone && self.chosenone<=23 {
-            i=202
-        }
-        else if 24<=self.chosenone && self.chosenone<=31 {
-            i=203
-        }
-        else if 32<=self.chosenone && self.chosenone<=39 {
-            i=204
-        }
-        else if 40<=self.chosenone && self.chosenone<=47 {
-            i=205
-        }
-        else if 48<=self.chosenone && self.chosenone<=55 {
-            i=206
-        }
-        else{
+
+    func find1()-> Bool{
+        var i=0
+        if self.chosenone == nil {
             let alert = UIAlertController(title: "Choose a date", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            return;
+            return false;
         }
-        define(a: i)
+        else {
+            if 0<=self.chosenone && self.chosenone<=7 {
+                i=200
+            }
+            else if 8<=self.chosenone && self.chosenone<=15 {
+                i=201
+            }
+            else if 16<=self.chosenone && self.chosenone<=23 {
+                i=202
+            }
+            else if 24<=self.chosenone && self.chosenone<=31 {
+                i=203
+            }
+            else if 32<=self.chosenone && self.chosenone<=39 {
+                i=204
+            }
+            else if 40<=self.chosenone && self.chosenone<=47 {
+                i=205
+            }
+            else if 48<=self.chosenone && self.chosenone<=55 {
+                i=206
+            }
+            define(a: i)
+            return true
+        }
     }
-    
 }
 extension BookingViewController: SWComboxViewDataSourcce {
     func comboBoxSeletionItems(combox: SWComboxView) -> [Any] {
@@ -237,8 +240,5 @@ extension BookingViewController : SWComboxViewDelegate {
             Sumcount.text = "Free"
         }
         
-       
-        //print("index - \(index) selected - \(object) combo \(withCombox)")
-        //selecionada = object as? String
     }
 }
