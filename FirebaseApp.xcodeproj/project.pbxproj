@@ -22,6 +22,15 @@
 		507897872329B87C00957EC8 /* SWComboxTextSelection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5078977D2329B87C00957EC8 /* SWComboxTextSelection.xib */; };
 		507897882329B87C00957EC8 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5078977E2329B87C00957EC8 /* NibView.swift */; };
 		50D26409230E0F930082522A /* UserListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50D26408230E0F930082522A /* UserListViewCell.xib */; };
+		7B3F4BBD23932B2C00B63A3B /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F4BBA23932B2C00B63A3B /* ChatVC.swift */; };
+		7B3F4BBE23932B2C00B63A3B /* MessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F4BBB23932B2C00B63A3B /* MessageVC.swift */; };
+		7B3F4BBF23932B2C00B63A3B /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F4BBC23932B2C00B63A3B /* SearchVC.swift */; };
+		7B3F4BC323932B3700B63A3B /* messageDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F4BC023932B3600B63A3B /* messageDetailCell.swift */; };
+		7B3F4BC423932B3700B63A3B /* searchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F4BC123932B3700B63A3B /* searchCell.swift */; };
+		7B3F4BC523932B3700B63A3B /* MessagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F4BC223932B3700B63A3B /* MessagesCell.swift */; };
+		7B3F4BC923932B3F00B63A3B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F4BC623932B3E00B63A3B /* Message.swift */; };
+		7B3F4BCA23932B3F00B63A3B /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F4BC723932B3E00B63A3B /* Search.swift */; };
+		7B3F4BCB23932B3F00B63A3B /* MessageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F4BC823932B3F00B63A3B /* MessageDetail.swift */; };
 		7BC86CDE237ED9D30064A6F0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC86CDD237ED9D30064A6F0 /* SettingsViewController.swift */; };
 		7BDA70BC236E2FE2004D3079 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BDA70BB236E2FE2004D3079 /* GoogleService-Info.plist */; };
 		A532550CD0244022A8D278B5 /* Pods_FirebaseApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F272F2CC379BF3D39E51153 /* Pods_FirebaseApp.framework */; };
@@ -62,6 +71,15 @@
 		5078977E2329B87C00957EC8 /* NibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
 		50D26408230E0F930082522A /* UserListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserListViewCell.xib; sourceTree = "<group>"; };
 		6580728F4CE95C2C81CE978D /* Pods-FirebaseApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseApp/Pods-FirebaseApp.debug.xcconfig"; sourceTree = "<group>"; };
+		7B3F4BBA23932B2C00B63A3B /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		7B3F4BBB23932B2C00B63A3B /* MessageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageVC.swift; sourceTree = "<group>"; };
+		7B3F4BBC23932B2C00B63A3B /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		7B3F4BC023932B3600B63A3B /* messageDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = messageDetailCell.swift; sourceTree = "<group>"; };
+		7B3F4BC123932B3700B63A3B /* searchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchCell.swift; sourceTree = "<group>"; };
+		7B3F4BC223932B3700B63A3B /* MessagesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesCell.swift; sourceTree = "<group>"; };
+		7B3F4BC623932B3E00B63A3B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		7B3F4BC723932B3E00B63A3B /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		7B3F4BC823932B3F00B63A3B /* MessageDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetail.swift; sourceTree = "<group>"; };
 		7BC86CDD237ED9D30064A6F0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7BDA70BB236E2FE2004D3079 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8F272F2CC379BF3D39E51153 /* Pods_FirebaseApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +141,22 @@
 				5078977B2329B87C00957EC8 /* UIViewEx.swift */,
 			);
 			path = SWComboxLib;
+			sourceTree = "<group>";
+		};
+		7B3F4BCC23932B5C00B63A3B /* messages */ = {
+			isa = PBXGroup;
+			children = (
+				7B3F4BBA23932B2C00B63A3B /* ChatVC.swift */,
+				7B3F4BBB23932B2C00B63A3B /* MessageVC.swift */,
+				7B3F4BBC23932B2C00B63A3B /* SearchVC.swift */,
+				7B3F4BC623932B3E00B63A3B /* Message.swift */,
+				7B3F4BC823932B3F00B63A3B /* MessageDetail.swift */,
+				7B3F4BC723932B3E00B63A3B /* Search.swift */,
+				7B3F4BC023932B3600B63A3B /* messageDetailCell.swift */,
+				7B3F4BC223932B3700B63A3B /* MessagesCell.swift */,
+				7B3F4BC123932B3700B63A3B /* searchCell.swift */,
+			);
+			path = messages;
 			sourceTree = "<group>";
 		};
 		A0C761416E3732FA4F5714B6 /* Pods */ = {
@@ -224,6 +258,7 @@
 				B08C14EF203163AC0061819B /* Services */,
 				B08C14F0203163E10061819B /* Authentication */,
 				B08C14F1203163F90061819B /* Home */,
+				7B3F4BCC23932B5C00B63A3B /* messages */,
 				B08C14F2203164080061819B /* Storyboards */,
 				B08C14FA20316D1A0061819B /* User Interface */,
 				B0E78FFF202504FD002DA8AF /* HelperExtensions.swift */,
@@ -360,25 +395,34 @@
 				B0E79001202504FE002DA8AF /* SignUpViewController.swift in Sources */,
 				B0E78FFB202504E1002DA8AF /* InitialViewController.swift in Sources */,
 				B02B8CFD2229A82500BB76CC /* SeeNewPostsButton.swift in Sources */,
+				7B3F4BBE23932B2C00B63A3B /* MessageVC.swift in Sources */,
+				7B3F4BC523932B3700B63A3B /* MessagesCell.swift in Sources */,
+				7B3F4BC923932B3F00B63A3B /* Message.swift in Sources */,
 				B0E79004202504FE002DA8AF /* HelperExtensions.swift in Sources */,
 				B0E78FF92025025E002DA8AF /* HomeViewController.swift in Sources */,
 				507897812329B87C00957EC8 /* SWComboxSelectionView.swift in Sources */,
 				507897882329B87C00957EC8 /* NibView.swift in Sources */,
 				50425A7A231F2660004903E1 /* ProfileViewController.swift in Sources */,
+				7B3F4BC423932B3700B63A3B /* searchCell.swift in Sources */,
+				7B3F4BBF23932B2C00B63A3B /* SearchVC.swift in Sources */,
 				B0E79003202504FE002DA8AF /* MenuViewController.swift in Sources */,
 				B0E78FD92024FDEF002DA8AF /* AppDelegate.swift in Sources */,
 				507897802329B87C00957EC8 /* SWComboxSelectionCell.swift in Sources */,
 				507897842329B87C00957EC8 /* SWComboxView.swift in Sources */,
 				B0E79002202504FE002DA8AF /* LoginViewController.swift in Sources */,
 				B02F5958213334DE00D138B9 /* LoadingCell.swift in Sources */,
+				7B3F4BCB23932B3F00B63A3B /* MessageDetail.swift in Sources */,
 				B08C14EC202E70080061819B /* UserService.swift in Sources */,
+				7B3F4BCA23932B3F00B63A3B /* Search.swift in Sources */,
 				50000BEE236A4147000CC434 /* HostListViewCell.swift in Sources */,
 				5078977F2329B87C00957EC8 /* SWComboxTextSelection.swift in Sources */,
+				7B3F4BBD23932B2C00B63A3B /* ChatVC.swift in Sources */,
 				B0E79005202504FE002DA8AF /* RoundedWhiteButton.swift in Sources */,
 				B08C14E1202CDF9B0061819B /* UserListViewCell.swift in Sources */,
 				B08C14E8202CE5EF0061819B /* Post.swift in Sources */,
 				B0330FFE2031700E00FE2203 /* ImageService.swift in Sources */,
 				507897862329B87C00957EC8 /* SWComboxImageSelection.swift in Sources */,
+				7B3F4BC323932B3700B63A3B /* messageDetailCell.swift in Sources */,
 				7BC86CDE237ED9D30064A6F0 /* SettingsViewController.swift in Sources */,
 				5034C347235B44EA0033D8F2 /* BookingViewController.swift in Sources */,
 				507897852329B87C00957EC8 /* UIViewEx.swift in Sources */,

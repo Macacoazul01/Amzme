@@ -50,10 +50,12 @@ class ProfileViewController: UIViewController, UITextViewDelegate {
             super.dismiss(animated: flag, completion: completion)
         })
     }
-    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.hideKeyboardWhenTappedAround()
         guard let userProfile = UserService.currentUserProfile else { return }
         UsernameText.text = userProfile.username

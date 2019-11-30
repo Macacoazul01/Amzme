@@ -140,6 +140,7 @@ class LoginViewController:UIViewController, UITextFieldDelegate {
         
         Auth.auth().signIn(withEmail: email, password: pass) { user, error in
             if error == nil && user != nil {
+
                 self.dismiss(animated: false, completion: nil)
             } else {
                 self.resetForm(why: error!.localizedDescription)
