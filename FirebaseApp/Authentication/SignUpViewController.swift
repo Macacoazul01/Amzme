@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import Firebase
+import SwiftKeychainWrapper
 
 class SignUpViewController:UIViewController, UITextFieldDelegate {
     
@@ -13,7 +14,6 @@ class SignUpViewController:UIViewController, UITextFieldDelegate {
     
     var continueButton:RoundedWhiteButton!
     var activityView:UIActivityIndicatorView!
-    
     var imagePicker:UIImagePickerController!
     
     override func viewDidLoad() {
@@ -150,7 +150,6 @@ class SignUpViewController:UIViewController, UITextFieldDelegate {
         guard let image = profileImageView.image else { return }
         //if isValidEmail(emailStr: email) && isValidPassword(passStr: pass){
             
-        
         setContinueButton(enabled: false)
         continueButton.setTitle("", for: .normal)
         activityView.startAnimating()
@@ -158,20 +157,16 @@ class SignUpViewController:UIViewController, UITextFieldDelegate {
         Auth.auth().createUser(withEmail: email, password: pass) { user, error in
             if error == nil && user != nil {
                 print("User created!")
-                
-                
                 // 1. Upload the profile image to Firebase Storage
                 
                 self.uploadProfileImage(image) { url in
                     
                     if url != nil {
                         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                        changeRequest?.displayName = username
                         changeRequest?.photoURL = url
-                        
                         changeRequest?.commitChanges { error in
                             if error == nil {
-                                print("User display name changed!")
+                                //print("User display name changed!")
                                 
                                 self.saveProfile(username: username, profileImageURL: url!) { success in
                                     if success {
@@ -222,6 +217,7 @@ class SignUpViewController:UIViewController, UITextFieldDelegate {
     
     func uploadProfileImage(_ image:UIImage, completion: @escaping ((_ url:URL?)->())) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
+        KeychainWrapper.standard.set(uid, forKey: "uid")
         let storageRef = Storage.storage().reference().child("user/\(uid)")
         
         guard let imageData = image.jpegData(compressionQuality: 0.75) else { return }

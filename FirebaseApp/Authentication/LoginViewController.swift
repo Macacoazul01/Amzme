@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 import Firebase
-
+import SwiftKeychainWrapper
 
 class LoginViewController:UIViewController, UITextFieldDelegate {
     
@@ -140,7 +140,8 @@ class LoginViewController:UIViewController, UITextFieldDelegate {
         
         Auth.auth().signIn(withEmail: email, password: pass) { user, error in
             if error == nil && user != nil {
-
+                guard let uid = Auth.auth().currentUser?.uid else { return }
+                KeychainWrapper.standard.set(uid, forKey: "uid")
                 self.dismiss(animated: false, completion: nil)
             } else {
                 self.resetForm(why: error!.localizedDescription)

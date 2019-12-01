@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import Firebase
+import SwiftKeychainWrapper
 
 class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -53,7 +54,29 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let verid = KeychainWrapper.standard.string(forKey: "uid")
+        if verid == nil {
+            Auth.auth().addStateDidChangeListener { auth, user in
+            
+                if user != nil {
+                    UserService.observeUserProfile(user!.uid) { userProfile in
+                        UserService.currentUserProfile = userProfile
+                        KeychainWrapper.standard.set(user!.uid, forKey: "uid")
+                    }
+                }
+                else {
+                    UserService.currentUserProfile = nil
+                }
+            }
+        }
+        else {
+            if UserService.currentUserProfile == nil {
+                UserService.observeUserProfile(verid!) { userProfile in
+                    UserService.currentUserProfile = userProfile
+                }
+            }
+            
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -211,6 +234,7 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     @IBAction func handleLogout(_ sender:Any) {
+         KeychainWrapper.standard.removeObject(forKey: "uid")
         try! Auth.auth().signOut()
     }
     
