@@ -39,7 +39,7 @@ class messageDetailCell: UITableViewCell {
             
             let username = data["username"]
             
-            let userImg = data["userImg"]
+            let userImg = data["photoURL"]
             
             self.recipientName.text = username as? String
             

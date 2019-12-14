@@ -134,7 +134,7 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         } else {
             
             isSearching = true
-            
+    
             filteredData = searchDetail.filter({ $0.username == searchBar.text! })
             
             tableView.reloadData()

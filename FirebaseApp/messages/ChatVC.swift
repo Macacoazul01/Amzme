@@ -2,14 +2,16 @@ import UIKit
 import Firebase
 import SwiftKeychainWrapper
 
-class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var messageDetail = [MessageDetail]()
+    var filteredData = [MessageDetail]()
     
+    var isSearching = false
     var detail: MessageDetail!
-    
     var userProfile:UserProfile!
     
     var currentUser: String!
@@ -20,11 +22,11 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        userProfile = UserService.currentUserProfile
-        currentUser = userProfile.uid
+        let currentUser = KeychainWrapper.standard.string(forKey: "uid")
         tableView.delegate = self
-        
         tableView.dataSource = self
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.done
         
         Database.database().reference().child("users").child(currentUser!).child("messages").observe(.value, with: { (snapshot) in
         
@@ -48,20 +50,45 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.tableView.reloadData()
         })
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let destinationViewController = segue.destination as? MessageVC {
+            
+            destinationViewController.recipient = recipient
+            
+            destinationViewController.messageId = messageId
+        }
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return messageDetail.count
+        if isSearching {
+            
+            return filteredData.count
+            
+        }else {
+            
+            return messageDetail.count
+        }
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let messageData: MessageDetail!
         
-        let messageDet = messageDetail[indexPath.row]
+        if isSearching {
+            messageData = filteredData[indexPath.row]
+            
+        } else {
+            messageData = messageDetail[indexPath.row]
+        }
+        
+        let messageDet: MessageDetail!
+        
+        messageDet = messageDetail[indexPath.row]
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell") as? messageDetailCell {
             
@@ -83,16 +110,26 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: "toMessages", sender: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        if let destinationViewController = segue.destination as? MessageVC {
+        if searchBar.text == nil || searchBar.text == "" {
             
-            destinationViewController.recipient = recipient
+            isSearching = false
             
-            destinationViewController.messageId = messageId
+            view.endEditing(true)
+            
+            tableView.reloadData()
+            
+        } else {
+            
+            isSearching = true
+            
+            //filteredData = messageDetail.filter({ $0.username == searchBar.text! })
+            
+            tableView.reloadData()
         }
     }
-    
     @IBAction func signOut(_ sender: AnyObject) {
         
         try! Auth.auth().signOut()
