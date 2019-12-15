@@ -21,7 +21,7 @@ class LoginViewController:UIViewController, UITextFieldDelegate {
         continueButton.setTitleColor(secondaryColor, for: .normal)
         continueButton.setTitle("Continue", for: .normal)
         continueButton.titleLabel?.font = UIFont.systemFont(ofSize: 18.0, weight: UIFont.Weight.bold)
-        continueButton.center = CGPoint(x: view.center.x, y: view.frame.height - continueButton.frame.height - 24)
+        continueButton.center = CGPoint(x: view.center.x, y: view.frame.height - continueButton.frame.height - 50)
         continueButton.highlightedColor = UIColor(white: 1.0, alpha: 1.0)
         continueButton.defaultColor = UIColor.white
         continueButton.addTarget(self, action: #selector(handleSignIn), for: .touchUpInside)

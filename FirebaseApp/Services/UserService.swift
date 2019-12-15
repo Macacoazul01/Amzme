@@ -7,7 +7,7 @@ class UserService {
     
     static func observeUserProfile(_ uid:String, completion: @escaping ((_ userProfile:UserProfile?)->())) {
         let userRef = Database.database().reference().child("users/profile/\(uid)")
-        userRef.observe(.value, with: { snapshot in
+        userRef.observeSingleEvent(of: .value, with: { snapshot in
             var userProfile:UserProfile?
             
             if let dict = snapshot.value as? [String:Any],
@@ -26,8 +26,6 @@ class UserService {
             }
             
             completion(userProfile)
-        }, withCancel: { error in
-            print(error.localizedDescription)
         })
     }
     

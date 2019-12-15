@@ -335,7 +335,7 @@ class ProfileViewController: UIViewController, UITextViewDelegate {
             if success {
                 self.dismiss(animated: true, completion: nil)
             } else {
-                self.resetForm()
+                self.resetForm(why: "nao deu certo")
             }
         }
     }
@@ -344,69 +344,68 @@ class ProfileViewController: UIViewController, UITextViewDelegate {
     func saveProfile(completion: @escaping ((_ success:Bool)->())) {
         var ref: DatabaseReference!
         ref = Database.database().reference()
-        guard let userProfile = UserService.currentUserProfile else { return }
-        
-        let storageRef = Storage.storage().reference().child("user/\(userProfile.uid)")
-        storageRef.delete{ error in
-            if error != nil {
-                print("avisar")
-            }
-        }
+        guard let uid = Auth.auth().currentUser?.uid else { return }
         
         guard let image = profileImageView.image else { return }
-        uploadProfileImage(image) { (url) in
+        self.uploadProfileImage(image,id: uid) { (url) in
             if url != nil {
-                ref.child("users/profile/\(userProfile.uid)/photoURL").setValue(url?.absoluteString)
-            }
-        }
-        let userref = ref.child("users/profile/\(userProfile.uid)")
-        let userObject = [
-            "username": UsernameText.text!,
-            "city": HomeTownText.text!,
-            "languages": ProfileLanguages.text!,
-            "description": DescriptionText.text!,
-            "typeuser": typeusr!,
-            "usrfee": FeeText.text!,
-            "typefee": typefee!,
-            "avaliability": botoes!
-            ] as [String:Any]
-        
-        userref.setValue(userObject)
-        if typeusr == "1" || typeusr == "2"{
-            
-            let postRef = ref.child("posts/\(userProfile.uid)")
-            //let postRef = ref.child("posts").childByAutoId()
-
-            
-            let postObject = [
-                "author": [
-                    "uid": userProfile.uid,
-                    "username": UsernameText.text ?? "Username",
-                    "photoURL": userProfile.photoURL.absoluteString,
-                    "city": HomeTownText.text ?? "City",
-                    "description": DescriptionText.text ?? "",
-                    "languages": ProfileLanguages.text ?? "",
-                    "usrfee": FeeText.text ?? "Free",
-                    "avaliability": botoes!,
-                    "typeuser": typeusr ?? "1",
-                    "typefee": typefee ?? "3"
-                ],
-                "timestamp": [".sv":"timestamp"],"typepost": "1"
-                ] as [String:Any]
-            
-            postRef.setValue(postObject, withCompletionBlock: { error, ref in
-                if error == nil {
-                    self.delegate?.didUploadPost(withID: ref.key!)
-                } else {
-                    // Handle the error
+                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                changeRequest?.photoURL = url
+                changeRequest?.commitChanges { error in
+                    if error != nil {
+                        self.resetForm(why: error!.localizedDescription)
+                    }
                 }
-            })
+                let urlstring = url!.absoluteString
+                let userref = ref.child("users/profile/\(uid)")
+                let userObject = [
+                    "username": self.UsernameText.text!,
+                    "city": self.HomeTownText.text!,
+                    "photoURL": urlstring,
+                    "languages": self.ProfileLanguages.text!,
+                    "description": self.DescriptionText.text!,
+                    "typeuser": self.typeusr!,
+                    "usrfee": self.FeeText.text!,
+                    "typefee": self.typefee!,
+                    "avaliability": self.botoes!
+                    ] as [String:Any]
+                userref.setValue(userObject)
+                
+                if self.typeusr == "1" || self.typeusr == "2"{
+
+                    let postRef = ref.child("posts/\(uid)")
+                    //let postRef = ref.child("posts").childByAutoId()
+                    let postObject = [
+                        "author": [
+                            "uid": uid,
+                            "username": self.UsernameText.text ?? "Username",
+                            "photoURL": urlstring,
+                            "city": self.HomeTownText.text ?? "City",
+                            "description": self.DescriptionText.text ?? "",
+                            "languages": self.ProfileLanguages.text ?? "",
+                            "usrfee": self.FeeText.text ?? "Free",
+                            "avaliability": self.botoes!,
+                            "typeuser": self.typeusr ?? "1",
+                            "typefee": self.typefee ?? "3"
+                        ],
+                        "timestamp": [".sv":"timestamp"],"typepost": "1"
+                        ] as [String:Any]
+                    
+                    postRef.setValue(postObject, withCompletionBlock: { error, ref in
+                        if error == nil {
+                            self.delegate?.didUploadPost(withID: ref.key!)
+                        } else {
+                            self.resetForm(why: error!.localizedDescription)
+                        }
+                    })
+                }
+            }
         }
         completion(true)
         }
     
-    func resetForm() {
-        let alert = UIAlertController(title: "Error saving your profile", message: nil, preferredStyle: .alert)
+    func resetForm(why:String) {
+        let alert = UIAlertController(title: why, message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
@@ -418,25 +417,25 @@ class ProfileViewController: UIViewController, UITextViewDelegate {
         containner2.defaultSelectedIndex = 0
     }
     
-    func uploadProfileImage(_ image:UIImage, completion: @escaping ((_ url:URL?)->())) {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        let storageRef = Storage.storage().reference().child("user/\(uid)")
+    func uploadProfileImage(_ image:UIImage,id:String, completion: @escaping ((_ url:URL?)->())) {
+        let storageRef = Storage.storage().reference().child("user/\(id)")
         guard let imageData = image.jpegData(compressionQuality: 0.75) else { return }
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
+        
         storageRef.putData(imageData, metadata: metaData) { metaData, error in
             if error == nil, metaData != nil {
-                
-                storageRef.downloadURL { (url, error) in
-                    if error != nil {
-                        print("Failed to download url:", error!)
-                        return
+                storageRef.downloadURL { url1, error2 in
+                    if error2 == nil {
+                        completion(url1)
                     }
-                    completion(url)
+                    else {
+                        self.resetForm(why: error!.localizedDescription)
+                        completion(nil)
+                    }
                 }
-                
             } else {
-                // failed
+                self.resetForm(why: error!.localizedDescription)
                 completion(nil)
             }
         }

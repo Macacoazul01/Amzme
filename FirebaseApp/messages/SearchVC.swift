@@ -19,7 +19,9 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     var recipient: String!
     
     var messageId: String!
-
+    
+    var currentUser = KeychainWrapper.standard.string(forKey: "uid")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,10 +44,12 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                     if let postDict = data.value as? Dictionary<String, AnyObject> {
                         
                         let key = data.key
+                        if key != self.currentUser {
+                            let post = Search(userKey: key, postData: postDict)
+                            
+                            self.searchDetail.append(post)
+                        }
                         
-                        let post = Search(userKey: key, postData: postDict)
-                        
-                        self.searchDetail.append(post)
                     }
                 }
             }

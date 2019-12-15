@@ -19,8 +19,8 @@ class HostListViewCell: UITableViewCell  {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        UserImage.layer.cornerRadius = UserImage.bounds.height / 2
-        UserImage.clipsToBounds = true
+        //UserImage.layer.cornerRadius = UserImage.bounds.height / 2
+        //UserImage.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
 

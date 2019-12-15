@@ -22,6 +22,7 @@
 		507897872329B87C00957EC8 /* SWComboxTextSelection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5078977D2329B87C00957EC8 /* SWComboxTextSelection.xib */; };
 		507897882329B87C00957EC8 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5078977E2329B87C00957EC8 /* NibView.swift */; };
 		50D26409230E0F930082522A /* UserListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50D26408230E0F930082522A /* UserListViewCell.xib */; };
+		7B37890123A676A800E9599D /* SettingsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37890023A676A800E9599D /* SettingsListCell.swift */; };
 		7B3F4BBD23932B2C00B63A3B /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F4BBA23932B2C00B63A3B /* ChatVC.swift */; };
 		7B3F4BBE23932B2C00B63A3B /* MessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F4BBB23932B2C00B63A3B /* MessageVC.swift */; };
 		7B3F4BBF23932B2C00B63A3B /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F4BBC23932B2C00B63A3B /* SearchVC.swift */; };
@@ -71,6 +72,7 @@
 		5078977E2329B87C00957EC8 /* NibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
 		50D26408230E0F930082522A /* UserListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserListViewCell.xib; sourceTree = "<group>"; };
 		6580728F4CE95C2C81CE978D /* Pods-FirebaseApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseApp/Pods-FirebaseApp.debug.xcconfig"; sourceTree = "<group>"; };
+		7B37890023A676A800E9599D /* SettingsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsListCell.swift; sourceTree = "<group>"; };
 		7B3F4BBA23932B2C00B63A3B /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		7B3F4BBB23932B2C00B63A3B /* MessageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageVC.swift; sourceTree = "<group>"; };
 		7B3F4BBC23932B2C00B63A3B /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
@@ -143,6 +145,19 @@
 			path = SWComboxLib;
 			sourceTree = "<group>";
 		};
+		7B3788FF23A6763C00E9599D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				50000BEC236A4147000CC434 /* HostListViewCell.swift */,
+				50000BED236A4147000CC434 /* HostListViewCell.xib */,
+				B08C14DF202CDF9B0061819B /* UserListViewCell.swift */,
+				50D26408230E0F930082522A /* UserListViewCell.xib */,
+				B02F5956213334DE00D138B9 /* LoadingCell.swift */,
+				7B37890023A676A800E9599D /* SettingsListCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		7B3F4BCC23932B5C00B63A3B /* messages */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,15 +215,11 @@
 		B08C14F1203163F90061819B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				7B3788FF23A6763C00E9599D /* Cell */,
 				B0E78FF82025025E002DA8AF /* HomeViewController.swift */,
-				B08C14DF202CDF9B0061819B /* UserListViewCell.swift */,
-				50D26408230E0F930082522A /* UserListViewCell.xib */,
-				B02F5956213334DE00D138B9 /* LoadingCell.swift */,
 				B02B8CFC2229A82400BB76CC /* SeeNewPostsButton.swift */,
 				50425A79231F2660004903E1 /* ProfileViewController.swift */,
 				5034C346235B44EA0033D8F2 /* BookingViewController.swift */,
-				50000BEC236A4147000CC434 /* HostListViewCell.swift */,
-				50000BED236A4147000CC434 /* HostListViewCell.xib */,
 				7BC86CDD237ED9D30064A6F0 /* SettingsViewController.swift */,
 			);
 			path = Home;
@@ -413,6 +424,7 @@
 				B02F5958213334DE00D138B9 /* LoadingCell.swift in Sources */,
 				7B3F4BCB23932B3F00B63A3B /* MessageDetail.swift in Sources */,
 				B08C14EC202E70080061819B /* UserService.swift in Sources */,
+				7B37890123A676A800E9599D /* SettingsListCell.swift in Sources */,
 				7B3F4BCA23932B3F00B63A3B /* Search.swift in Sources */,
 				50000BEE236A4147000CC434 /* HostListViewCell.swift in Sources */,
 				5078977F2329B87C00957EC8 /* SWComboxTextSelection.swift in Sources */,

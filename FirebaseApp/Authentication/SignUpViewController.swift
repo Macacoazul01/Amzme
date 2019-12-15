@@ -25,7 +25,7 @@ class SignUpViewController:UIViewController, UITextFieldDelegate {
         continueButton.setTitleColor(secondaryColor, for: .normal)
         continueButton.setTitle("Continue", for: .normal)
         continueButton.titleLabel?.font = UIFont.systemFont(ofSize: 18.0, weight: UIFont.Weight.bold)
-        continueButton.center = CGPoint(x: view.center.x, y: view.frame.height - continueButton.frame.height - 24)
+        continueButton.center = CGPoint(x: view.center.x, y: view.frame.height - continueButton.frame.height - 50)
         continueButton.highlightedColor = UIColor(white: 1.0, alpha: 1.0)
         continueButton.defaultColor = UIColor.white
         continueButton.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
@@ -148,7 +148,7 @@ class SignUpViewController:UIViewController, UITextFieldDelegate {
         guard let email = emailField.text else { return }
         guard let pass = passwordField.text else { return }
         guard let image = profileImageView.image else { return }
-        //if isValidEmail(emailStr: email) && isValidPassword(passStr: pass){
+        if isValidEmail(emailStr: email) && isValidPassword(passStr: pass){
             
         setContinueButton(enabled: false)
         continueButton.setTitle("", for: .normal)
@@ -190,10 +190,10 @@ class SignUpViewController:UIViewController, UITextFieldDelegate {
                 self.resetForm(why: error!.localizedDescription)
             }
         }
-        //}
-        //else{
-        //    self.resetForm()
-        //}
+        }
+        else{
+            self.resetForm(why: "email nao existe ou senha nao contem 8 caracteres, 1 especial")
+        }
     }
     public func isValidPassword(passStr:String) -> Bool {
         let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[d$@$!%*?&#])[A-Za-z\\dd$@$!%*?&#]{8,}"

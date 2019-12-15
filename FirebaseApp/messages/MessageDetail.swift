@@ -6,6 +6,8 @@ class MessageDetail {
     
     private var _recipient: String!
     
+    //private var _recipName: String!
+    
     private var _messageKey: String!
     
     private var _lastmessage: String!
@@ -18,6 +20,11 @@ class MessageDetail {
         
         return _recipient
     }
+    
+    //var recipName: String {
+        
+       // return _recipName
+    //}
     
     var messageKey: String {
         

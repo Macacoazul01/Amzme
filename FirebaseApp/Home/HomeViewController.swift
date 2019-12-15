@@ -54,29 +54,8 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let verid = KeychainWrapper.standard.string(forKey: "uid")
-        if verid == nil {
-            Auth.auth().addStateDidChangeListener { auth, user in
-            
-                if user != nil {
-                    UserService.observeUserProfile(user!.uid) { userProfile in
-                        UserService.currentUserProfile = userProfile
-                        KeychainWrapper.standard.set(user!.uid, forKey: "uid")
-                    }
-                }
-                else {
-                    UserService.currentUserProfile = nil
-                }
-            }
-        }
-        else {
-            if UserService.currentUserProfile == nil {
-                UserService.observeUserProfile(verid!) { userProfile in
-                    UserService.currentUserProfile = userProfile
-                }
-            }
-            
-        }
+        resetusr()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -89,9 +68,9 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
             namenib = "UserListViewCell"
         }
         else {
-            //namenib = "HostListViewCell"
+            namenib = "HostListViewCell"
             //enquanto nao corrigir os erros vai ficar assim
-            namenib = "UserListViewCell"
+            //namenib = "UserListViewCell"
         }
         let cellNib = UINib(nibName: namenib, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "postCell")
@@ -256,9 +235,16 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! UserListViewCell
-            cell.set(post: posts[indexPath.row])
-            return cell
+            if namenib == "HostListViewCell" {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! HostListViewCell
+                cell.set(post: posts[indexPath.row])
+                return cell
+            }
+            else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! UserListViewCell
+                cell.set(post: posts[indexPath.row])
+                return cell
+            }
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath) as! LoadingCell
             cell.spinner.startAnimating()
@@ -331,6 +317,32 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
         if let handle = postListenerHandle {
             newPostsQuery.removeObserver(withHandle: handle)
             postListenerHandle = nil
+        }
+    }
+    
+    func resetusr(){
+        let verid = KeychainWrapper.standard.string(forKey: "uid")
+        if verid == nil {
+            Auth.auth().addStateDidChangeListener { auth, user in
+            
+                if user != nil {
+                    UserService.observeUserProfile(user!.uid) { userProfile in
+                        UserService.currentUserProfile = userProfile
+                        KeychainWrapper.standard.set(user!.uid, forKey: "uid")
+                    }
+                }
+                else {
+                    UserService.currentUserProfile = nil
+                }
+            }
+        }
+        else {
+            if UserService.currentUserProfile == nil {
+                UserService.observeUserProfile(verid!) { userProfile in
+                    UserService.currentUserProfile = userProfile
+                }
+            }
+            
         }
     }
     

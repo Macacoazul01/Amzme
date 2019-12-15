@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -79,13 +79,6 @@
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="2tV-I2-pJ5" userLabel="Star5">
                                 <rect key="frame" x="144" y="26" width="15" height="15"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Hat" translatesAutoresizingMaskIntoConstraints="NO" id="emp-87-Ugh" userLabel="Graduation">
-                                <rect key="frame" x="167" y="0.0" width="25" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="758-A8-bZW"/>
-                                    <constraint firstAttribute="height" constant="25" id="uFc-Zf-Onl"/>
-                                </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Flag" translatesAutoresizingMaskIntoConstraints="NO" id="pTP-Mv-XKR" userLabel="Fav">
                                 <rect key="frame" x="0.0" y="141" width="20" height="10"/>
@@ -198,9 +191,9 @@
                             <constraint firstItem="rOE-zg-ZDl" firstAttribute="top" secondItem="gYu-Qk-vjd" secondAttribute="top" id="TGS-vP-Wtt"/>
                             <constraint firstItem="Mij-RS-mKb" firstAttribute="trailing" secondItem="Vnc-Hj-wr3" secondAttribute="trailing" id="UHq-Ii-VPW"/>
                             <constraint firstItem="z03-2f-oKJ" firstAttribute="height" secondItem="OcE-oF-rUh" secondAttribute="height" id="UJl-Xq-SM6"/>
-                            <constraint firstItem="9im-lT-cl4" firstAttribute="top" secondItem="emp-87-Ugh" secondAttribute="bottom" constant="5" id="Ur8-XP-gNl"/>
                             <constraint firstItem="mFy-7m-ACG" firstAttribute="width" secondItem="gYu-Qk-vjd" secondAttribute="width" id="WOV-6i-Tsc"/>
                             <constraint firstItem="8bs-P9-BCq" firstAttribute="width" secondItem="OcE-oF-rUh" secondAttribute="width" id="WdZ-t9-hJf"/>
+                            <constraint firstItem="9im-lT-cl4" firstAttribute="top" secondItem="jyO-Mb-7bL" secondAttribute="bottom" constant="9" id="XI2-Hp-HdH"/>
                             <constraint firstItem="mFy-7m-ACG" firstAttribute="top" secondItem="gYu-Qk-vjd" secondAttribute="top" id="YN9-Gq-j6J"/>
                             <constraint firstItem="gYu-Qk-vjd" firstAttribute="leading" secondItem="1z3-UK-S85" secondAttribute="trailing" constant="6" id="Yxe-84-p0A"/>
                             <constraint firstItem="4Fr-Bf-Vtc" firstAttribute="leading" secondItem="OcE-oF-rUh" secondAttribute="trailing" constant="3" id="Zm9-gp-T2Y"/>
@@ -213,16 +206,15 @@
                             <constraint firstItem="Mij-RS-mKb" firstAttribute="top" secondItem="Vnc-Hj-wr3" secondAttribute="bottom" constant="5" id="e3h-WP-DZE"/>
                             <constraint firstItem="miu-LJ-qHh" firstAttribute="width" secondItem="OcE-oF-rUh" secondAttribute="width" id="eUq-oE-Qrp"/>
                             <constraint firstItem="vBo-cH-J6k" firstAttribute="width" secondItem="OcE-oF-rUh" secondAttribute="width" id="edv-6n-eR9"/>
+                            <constraint firstItem="Aa9-a7-8Oo" firstAttribute="top" secondItem="Vnc-Hj-wr3" secondAttribute="bottom" constant="5" id="eqK-oF-WEA"/>
                             <constraint firstItem="vBo-cH-J6k" firstAttribute="leading" secondItem="8bs-P9-BCq" secondAttribute="trailing" constant="1" id="fb3-8Q-fsY"/>
                             <constraint firstItem="z03-2f-oKJ" firstAttribute="top" secondItem="4Fr-Bf-Vtc" secondAttribute="top" id="fdo-bL-LII"/>
                             <constraint firstItem="miu-LJ-qHh" firstAttribute="top" secondItem="4Fr-Bf-Vtc" secondAttribute="top" id="g5E-Ts-71i"/>
-                            <constraint firstItem="emp-87-Ugh" firstAttribute="top" secondItem="b6M-Cc-YL1" secondAttribute="top" id="gt1-4g-Nbb"/>
                             <constraint firstItem="2tV-I2-pJ5" firstAttribute="top" secondItem="gYu-Qk-vjd" secondAttribute="top" id="h8D-p5-fdW"/>
                             <constraint firstItem="Aa9-a7-8Oo" firstAttribute="bottom" secondItem="pTP-Mv-XKR" secondAttribute="bottom" id="hkm-Lg-2AC"/>
                             <constraint firstItem="gYu-Qk-vjd" firstAttribute="top" secondItem="jyO-Mb-7bL" secondAttribute="bottom" constant="5" id="j47-39-Ul0"/>
                             <constraint firstItem="CcY-d0-PWa" firstAttribute="leading" secondItem="gYu-Qk-vjd" secondAttribute="trailing" constant="2" id="j4n-ac-gi5"/>
                             <constraint firstItem="jyO-Mb-7bL" firstAttribute="top" secondItem="b6M-Cc-YL1" secondAttribute="top" id="jmY-ju-83k"/>
-                            <constraint firstItem="emp-87-Ugh" firstAttribute="leading" secondItem="jyO-Mb-7bL" secondAttribute="trailing" constant="2" id="k6w-Wo-K8x"/>
                             <constraint firstItem="vBo-cH-J6k" firstAttribute="top" secondItem="4Fr-Bf-Vtc" secondAttribute="top" id="kPc-Or-bi1"/>
                             <constraint firstItem="miu-LJ-qHh" firstAttribute="leading" secondItem="vBo-cH-J6k" secondAttribute="trailing" constant="1" id="lsC-uw-0vw"/>
                             <constraint firstItem="2tV-I2-pJ5" firstAttribute="width" secondItem="gYu-Qk-vjd" secondAttribute="width" id="ltf-qS-sv0"/>
@@ -250,15 +242,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="Accept" destination="Mij-RS-mKb" id="YcG-KO-PX7"/>
-                <outlet property="AvalCount" destination="9im-lT-cl4" id="Imq-kg-DbU"/>
                 <outlet property="AvaliationCount" destination="9im-lT-cl4" id="Rrf-ci-5Sl"/>
                 <outlet property="City" destination="NOW-1O-scg" id="Tij-9V-eqs"/>
-                <outlet property="CityText" destination="NOW-1O-scg" id="1hP-YR-jhO"/>
                 <outlet property="Day" destination="b8g-B7-adN" id="LwG-rK-had"/>
                 <outlet property="Fav" destination="pTP-Mv-XKR" id="DJ8-WQ-z4J"/>
-                <outlet property="FavFlag" destination="pTP-Mv-XKR" id="jdQ-Xw-1pq"/>
                 <outlet property="Hours" destination="Aa9-a7-8Oo" id="YOV-JK-hhi"/>
-                <outlet property="ProImage" destination="emp-87-Ugh" id="jWV-N9-E4R"/>
                 <outlet property="Reject" destination="neq-yp-qD9" id="5q3-yR-C5Q"/>
                 <outlet property="Star1" destination="gYu-Qk-vjd" id="CAq-ij-vy1"/>
                 <outlet property="Star2" destination="CcY-d0-PWa" id="1fH-a2-epw"/>
@@ -268,16 +256,12 @@
                 <outlet property="UserImage" destination="1z3-UK-S85" id="Do7-mb-hkA"/>
                 <outlet property="UserName" destination="jyO-Mb-7bL" id="IVQ-c2-CL0"/>
                 <outlet property="UserText" destination="Vnc-Hj-wr3" id="UYK-c0-cGz"/>
-                <outlet property="postTextLabel" destination="Vnc-Hj-wr3" id="mXI-0x-e4M"/>
-                <outlet property="profileImageView" destination="1z3-UK-S85" id="B7w-bf-BgM"/>
-                <outlet property="usernameLabel" destination="jyO-Mb-7bL" id="KgH-OE-60B"/>
             </connections>
             <point key="canvasLocation" x="-303.19999999999999" y="-94.002998500749626"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="Flag" width="25" height="12.5"/>
-        <image name="Hat" width="45" height="25"/>
         <image name="Location" width="15.5" height="25"/>
         <image name="Star" width="26" height="25"/>
     </resources>
