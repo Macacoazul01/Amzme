@@ -27,7 +27,7 @@ class searchCell: UITableViewCell {
         
         nameLbl.text = searchDetail.username
         
-        let ref = Storage.storage().reference(forURL: searchDetail.userImg)
+        let ref = Storage.storage().reference(forURL: searchDetail.photoURL)
         
         ref.getData(maxSize: 1000000, completion: { (data, error) in
             

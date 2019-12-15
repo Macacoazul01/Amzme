@@ -166,11 +166,11 @@ class MessageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
                 
                 firebaseMessage.setValue(post)
                 
-                let recipentMessage = Database.database().reference().child("users").child(recipient).child("messages").child(messageId)
+                let recipentMessage = Database.database().reference().child("users/profile").child(recipient).child("messages").child(messageId)
                 
                 recipentMessage.setValue(recipientMessage)
                 
-                let userMessage = Database.database().reference().child("users").child(currentUser!).child("messages").child(messageId)
+                let userMessage = Database.database().reference().child("users/profile").child(currentUser!).child("messages").child(messageId)
                 
                 userMessage.setValue(message)
                 
@@ -196,11 +196,11 @@ class MessageVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
                 
                 firebaseMessage.setValue(post)
                 
-                let recipentMessage = Database.database().reference().child("users").child(recipient).child("messages").child(messageId)
+                let recipentMessage = Database.database().reference().child("users/profile").child(recipient).child("messages").child(messageId)
                 
                 recipentMessage.setValue(recipientMessage)
                 
-                let userMessage = Database.database().reference().child("users").child(currentUser!).child("messages").child(messageId)
+                let userMessage = Database.database().reference().child("users/profile").child(currentUser!).child("messages").child(messageId)
                 
                 userMessage.setValue(message)
                 

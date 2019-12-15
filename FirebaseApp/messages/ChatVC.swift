@@ -28,7 +28,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
         
-        Database.database().reference().child("users").child(currentUser!).child("messages").observe(.value, with: { (snapshot) in
+        Database.database().reference().child("users/profile").child(currentUser!).child("messages").observe(.value, with: { (snapshot) in
         
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 
@@ -66,9 +66,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearching {
-            
             return filteredData.count
-            
         }else {
             
             return messageDetail.count
@@ -86,13 +84,9 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
             messageData = messageDetail[indexPath.row]
         }
         
-        let messageDet: MessageDetail!
-        
-        messageDet = messageDetail[indexPath.row]
-        
         if let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell") as? messageDetailCell {
             
-            cell.configureCell(messageDetail: messageDet)
+            cell.configureCell(messageDetail: messageData)
             
             return cell
         } else {
@@ -124,8 +118,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         } else {
             
             isSearching = true
-            
-            //filteredData = messageDetail.filter({ $0.username == searchBar.text! })
+            filteredData = messageDetail.filter({ $0.recipient.lowercased().contains(searchText.lowercased()) })
             
             tableView.reloadData()
         }

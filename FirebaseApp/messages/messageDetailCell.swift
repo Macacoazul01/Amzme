@@ -31,19 +31,19 @@ class messageDetailCell: UITableViewCell {
         
         self.messageDetail = messageDetail
         
-        let recipientData = Database.database().reference().child("users").child(messageDetail.recipient)
+        let recipientData = Database.database().reference().child("users/profile").child(messageDetail.recipient)
         
         recipientData.observeSingleEvent(of: .value, with: { (snapshot) in
             
             let data = snapshot.value as! Dictionary<String, AnyObject>
             
-            let username = data["username"]
+            let photoURL = data["photoURL"]
             
-            let userImg = data["photoURL"]
+            self.chatPreview.text = messageDetail.lastmessage
             
-            self.recipientName.text = username as? String
+            self.recipientName.text = data["username"] as? String
             
-            let ref = Storage.storage().reference(forURL: userImg! as! String)
+            let ref = Storage.storage().reference(forURL: photoURL! as! String)
             ref.getData(maxSize: 100000, completion: { (data, error) in
                 
                 if error != nil {

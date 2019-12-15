@@ -6,7 +6,7 @@ class Search {
     
     private var _username: String!
     
-    private var _userImg: String!
+    private var _photoURL: String!
     
     private var _userKey: String!
     
@@ -19,9 +19,9 @@ class Search {
         return _username
     }
     
-    var userImg: String {
+    var photoURL: String {
         
-        return _userImg
+        return _photoURL
     }
     
     var userKey: String{
@@ -29,11 +29,11 @@ class Search {
         return _userKey
     }
     
-    init(username: String, userImg: String) {
+    init(username: String, photoURL: String) {
         
         _username = username
         
-        _userImg = userImg
+        _photoURL = photoURL
     }
     
     init(userKey: String, postData: Dictionary<String, AnyObject>) {
@@ -45,9 +45,9 @@ class Search {
             _username = username
         }
         
-        if let userImg = postData["userImg"] as? String {
+        if let photoURL = postData["photoURL"] as? String {
             
-            _userImg = userImg
+            _photoURL = photoURL
         }
         
         _userRef = Database.database().reference().child("messages").child(_userKey)

@@ -31,7 +31,7 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         
         searchBar.returnKeyType = UIReturnKeyType.done
         
-        Database.database().reference().child("users").observe(.value, with: { (snapshot) in
+        Database.database().reference().child("users/profile").observe(.value, with: { (snapshot) in
             
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 
@@ -134,8 +134,7 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         } else {
             
             isSearching = true
-    
-            filteredData = searchDetail.filter({ $0.username == searchBar.text! })
+            filteredData = searchDetail.filter({ $0.username.lowercased().contains(searchText.lowercased()) })
             
             tableView.reloadData()
         }
