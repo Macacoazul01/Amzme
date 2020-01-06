@@ -6,6 +6,12 @@
 	<string>Please provide access to Camera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Please provide access to Photo Library.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This is why we need your location</string>
+	<key>MKDirectionsApplicationSupportedModes</key>
+	<array>
+		<string>MKDirectionsModeCar</string>
+	</array>
 	<key>FirebaseScreenReportingEnabled</key>
 	<false/>
 	<key>CFBundleDevelopmentRegion</key>

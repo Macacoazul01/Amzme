@@ -32,6 +32,7 @@
 		7B3F4BC923932B3F00B63A3B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F4BC623932B3E00B63A3B /* Message.swift */; };
 		7B3F4BCA23932B3F00B63A3B /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F4BC723932B3E00B63A3B /* Search.swift */; };
 		7B3F4BCB23932B3F00B63A3B /* MessageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F4BC823932B3F00B63A3B /* MessageDetail.swift */; };
+		7B73174623C3F70900CF642A /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B73174523C3F70900CF642A /* MapScreen.swift */; };
 		7B7E0B8C23BD639F0098134F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7E0B8923BD639D0098134F /* Login.swift */; };
 		7B7E0B8D23BD639F0098134F /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7E0B8A23BD639E0098134F /* Register.swift */; };
 		7B7E0B8E23BD639F0098134F /* ForgetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7E0B8B23BD639F0098134F /* ForgetPassword.swift */; };
@@ -85,6 +86,7 @@
 		7B3F4BC623932B3E00B63A3B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		7B3F4BC723932B3E00B63A3B /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		7B3F4BC823932B3F00B63A3B /* MessageDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetail.swift; sourceTree = "<group>"; };
+		7B73174523C3F70900CF642A /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		7B7E0B8923BD639D0098134F /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		7B7E0B8A23BD639E0098134F /* Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		7B7E0B8B23BD639F0098134F /* ForgetPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPassword.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				50425A79231F2660004903E1 /* ProfileViewController.swift */,
 				5034C346235B44EA0033D8F2 /* BookingViewController.swift */,
 				7BC86CDD237ED9D30064A6F0 /* SettingsViewController.swift */,
+				7B73174523C3F70900CF642A /* MapScreen.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				B08C14EC202E70080061819B /* UserService.swift in Sources */,
 				7B37890123A676A800E9599D /* SettingsListCell.swift in Sources */,
 				7B7E0B8C23BD639F0098134F /* Login.swift in Sources */,
+				7B73174623C3F70900CF642A /* MapScreen.swift in Sources */,
 				7B3F4BCA23932B3F00B63A3B /* Search.swift in Sources */,
 				50000BEE236A4147000CC434 /* HostListViewCell.swift in Sources */,
 				5078977F2329B87C00957EC8 /* SWComboxTextSelection.swift in Sources */,
