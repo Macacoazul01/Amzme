@@ -14,7 +14,7 @@ class messageDetailCell: UITableViewCell {
     
     var userPostKey: DatabaseReference!
     
-    let currentUser = KeychainWrapper.standard.string(forKey: "uid")
+    let currentUser = UserDefaults.standard.object(forKey: "uid") as? String
 
     override func awakeFromNib() {
         super.awakeFromNib()

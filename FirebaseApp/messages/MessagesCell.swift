@@ -13,7 +13,7 @@ class MessagesCell: UITableViewCell {
     
     var message: Message!
     
-    var currentUser = KeychainWrapper.standard.string(forKey: "uid")
+    var currentUser = UserDefaults.standard.object(forKey: "uid") as? String
 
     override func awakeFromNib() {
         super.awakeFromNib()

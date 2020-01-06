@@ -14,7 +14,7 @@ class MessageDetail {
     
     private var _messageRef: DatabaseReference!
     
-    var currentUser = KeychainWrapper.standard.string(forKey: "uid")
+    var currentUser = UserDefaults.standard.object(forKey: "uid") as? String
     
     var recipient: String {
         

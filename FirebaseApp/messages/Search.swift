@@ -12,7 +12,7 @@ class Search {
     
     private var _userRef: DatabaseReference!
     
-    var currentUser = KeychainWrapper.standard.string(forKey: "uid")
+    var currentUser = UserDefaults.standard.object(forKey: "uid") as? String
     
     var username: String {
         

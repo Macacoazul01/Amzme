@@ -4,7 +4,6 @@ class UserListViewCell: UITableViewCell {
     
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var postTextLabel: UILabel!
     @IBOutlet weak var FavFlag: UIImageView!
     @IBOutlet weak var AvalCount: UILabel!
     @IBOutlet weak var ProImage: UIImageView!
@@ -44,7 +43,6 @@ class UserListViewCell: UITableViewCell {
         self.post = post
         usernameLabel.text = post.author.username
         CityText.text = post.author.city
-        postTextLabel.text = post.author.description
         PriceText.text = post.author.usrfee + " per " + decodefee(i: post.author.typefee)
         Star1.alpha = 1
         Star2.alpha = 1

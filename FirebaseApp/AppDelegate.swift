@@ -12,35 +12,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        FirebaseApp.configure()
-        // Override point for customization after application launch.
-
-        Auth.auth().addStateDidChangeListener { auth, user in
+                FirebaseApp.configure()
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            
-            if user != nil {
-                
-                UserService.observeUserProfile(user!.uid) { userProfile in
-                    UserService.currentUserProfile = userProfile
+            if UserDefaults.standard.bool(forKey: "logged") {
+                if Auth.auth().currentUser == nil {
+                    let email = UserDefaults.standard.object(forKey: "email") as! String
+                    let password = UserDefaults.standard.object(forKey: "password") as! String
+                    Auth.auth().signIn(withEmail: email, password: password, completion: nil)
+                    
                 }
-                
-                let controller = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as! UITabBarController
-                self.window?.rootViewController = controller
-                self.window?.makeKeyAndVisible()
+                loadHome()
+                if UserService.currentUserProfile == nil {
+                    UserService.observeUserProfile(Auth.auth().currentUser!.uid) { userProfile in
+                    UserService.currentUserProfile = userProfile
+                    }
+                }
             } else {
-                
-                
-                UserService.currentUserProfile = nil
-                
-                // menu screen
-                let controller = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
-                self.window?.rootViewController = controller
-                self.window?.makeKeyAndVisible()
+                loadLoging()
             }
-        }
         
-        return true
+            return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -64,7 +55,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    fileprivate func loadHome() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as! UITabBarController
+        self.window?.rootViewController = controller
+        self.window?.makeKeyAndVisible()
+    }
+    
+    fileprivate func loadLoging() {
+        let controller = UINavigationController(rootViewController: Login())
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = controller
+        window?.makeKeyAndVisible()
+    }
 
 }
 

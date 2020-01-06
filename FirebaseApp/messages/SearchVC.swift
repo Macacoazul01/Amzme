@@ -20,7 +20,7 @@ class SearchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     var messageId: String!
     
-    var currentUser = KeychainWrapper.standard.string(forKey: "uid")
+    var currentUser = UserDefaults.standard.object(forKey: "uid") as? String
     
     override func viewDidLoad() {
         super.viewDidLoad()

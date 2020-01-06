@@ -32,6 +32,12 @@
 		7B3F4BC923932B3F00B63A3B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F4BC623932B3E00B63A3B /* Message.swift */; };
 		7B3F4BCA23932B3F00B63A3B /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F4BC723932B3E00B63A3B /* Search.swift */; };
 		7B3F4BCB23932B3F00B63A3B /* MessageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F4BC823932B3F00B63A3B /* MessageDetail.swift */; };
+		7B7E0B8C23BD639F0098134F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7E0B8923BD639D0098134F /* Login.swift */; };
+		7B7E0B8D23BD639F0098134F /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7E0B8A23BD639E0098134F /* Register.swift */; };
+		7B7E0B8E23BD639F0098134F /* ForgetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7E0B8B23BD639F0098134F /* ForgetPassword.swift */; };
+		7B7E0B9023BD63E10098134F /* Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7E0B8F23BD63E10098134F /* Validations.swift */; };
+		7B7E0BBA23BD65910098134F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7E0BB923BD65910098134F /* BaseViewController.swift */; };
+		7B7E0BBC23BD65A40098134F /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7E0BBB23BD65A40098134F /* Alerts.swift */; };
 		7BC86CDE237ED9D30064A6F0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC86CDD237ED9D30064A6F0 /* SettingsViewController.swift */; };
 		7BDA70BC236E2FE2004D3079 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BDA70BB236E2FE2004D3079 /* GoogleService-Info.plist */; };
 		A532550CD0244022A8D278B5 /* Pods_FirebaseApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F272F2CC379BF3D39E51153 /* Pods_FirebaseApp.framework */; };
@@ -48,9 +54,6 @@
 		B0E78FE32024FDEF002DA8AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0E78FE12024FDEF002DA8AF /* LaunchScreen.storyboard */; };
 		B0E78FF92025025E002DA8AF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E78FF82025025E002DA8AF /* HomeViewController.swift */; };
 		B0E78FFB202504E1002DA8AF /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E78FFA202504E1002DA8AF /* InitialViewController.swift */; };
-		B0E79001202504FE002DA8AF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E78FFC202504FD002DA8AF /* SignUpViewController.swift */; };
-		B0E79002202504FE002DA8AF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E78FFD202504FD002DA8AF /* LoginViewController.swift */; };
-		B0E79003202504FE002DA8AF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E78FFE202504FD002DA8AF /* MenuViewController.swift */; };
 		B0E79004202504FE002DA8AF /* HelperExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E78FFF202504FD002DA8AF /* HelperExtensions.swift */; };
 		B0E79005202504FE002DA8AF /* RoundedWhiteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E79000202504FE002DA8AF /* RoundedWhiteButton.swift */; };
 /* End PBXBuildFile section */
@@ -82,6 +85,12 @@
 		7B3F4BC623932B3E00B63A3B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		7B3F4BC723932B3E00B63A3B /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		7B3F4BC823932B3F00B63A3B /* MessageDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetail.swift; sourceTree = "<group>"; };
+		7B7E0B8923BD639D0098134F /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		7B7E0B8A23BD639E0098134F /* Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		7B7E0B8B23BD639F0098134F /* ForgetPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPassword.swift; sourceTree = "<group>"; };
+		7B7E0B8F23BD63E10098134F /* Validations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
+		7B7E0BB923BD65910098134F /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		7B7E0BBB23BD65A40098134F /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		7BC86CDD237ED9D30064A6F0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7BDA70BB236E2FE2004D3079 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8F272F2CC379BF3D39E51153 /* Pods_FirebaseApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,7 +101,7 @@
 		B08C14E7202CE5EF0061819B /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		B08C14EB202E70080061819B /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		B08C14ED202E703C0061819B /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
-		B0E78FD52024FDEF002DA8AF /* FirebaseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0E78FD52024FDEF002DA8AF /* AmazeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E78FD82024FDEF002DA8AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0E78FDD2024FDEF002DA8AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B0E78FDF2024FDEF002DA8AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,9 +109,6 @@
 		B0E78FE42024FDEF002DA8AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0E78FF82025025E002DA8AF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B0E78FFA202504E1002DA8AF /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
-		B0E78FFC202504FD002DA8AF /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		B0E78FFD202504FD002DA8AF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		B0E78FFE202504FD002DA8AF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B0E78FFF202504FD002DA8AF /* HelperExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
 		B0E79000202504FE002DA8AF /* RoundedWhiteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedWhiteButton.swift; sourceTree = "<group>"; };
 		F518532BBBD9EEF6AAD40CDD /* Pods-FirebaseApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseApp/Pods-FirebaseApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +194,8 @@
 			children = (
 				B08C14E7202CE5EF0061819B /* Post.swift */,
 				B08C14ED202E703C0061819B /* UserProfile.swift */,
+				7B7E0BB923BD65910098134F /* BaseViewController.swift */,
+				7B7E0BBB23BD65A40098134F /* Alerts.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,10 +212,10 @@
 		B08C14F0203163E10061819B /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				7B7E0B8B23BD639F0098134F /* ForgetPassword.swift */,
+				7B7E0B8923BD639D0098134F /* Login.swift */,
+				7B7E0B8A23BD639E0098134F /* Register.swift */,
 				B0E78FFA202504E1002DA8AF /* InitialViewController.swift */,
-				B0E78FFD202504FD002DA8AF /* LoginViewController.swift */,
-				B0E78FFE202504FD002DA8AF /* MenuViewController.swift */,
-				B0E78FFC202504FD002DA8AF /* SignUpViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -255,7 +263,7 @@
 		B0E78FD62024FDEF002DA8AF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B0E78FD52024FDEF002DA8AF /* FirebaseApp.app */,
+				B0E78FD52024FDEF002DA8AF /* AmazeMe.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -273,6 +281,7 @@
 				B08C14F2203164080061819B /* Storyboards */,
 				B08C14FA20316D1A0061819B /* User Interface */,
 				B0E78FFF202504FD002DA8AF /* HelperExtensions.swift */,
+				7B7E0B8F23BD63E10098134F /* Validations.swift */,
 				7BDA70BB236E2FE2004D3079 /* GoogleService-Info.plist */,
 				B0E78FE42024FDEF002DA8AF /* Info.plist */,
 				500F71822323E4230026769C /* SWComboxLib */,
@@ -283,9 +292,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B0E78FD42024FDEF002DA8AF /* FirebaseApp */ = {
+		B0E78FD42024FDEF002DA8AF /* AmazeMe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0E78FE72024FDEF002DA8AF /* Build configuration list for PBXNativeTarget "FirebaseApp" */;
+			buildConfigurationList = B0E78FE72024FDEF002DA8AF /* Build configuration list for PBXNativeTarget "AmazeMe" */;
 			buildPhases = (
 				14E416407D4940B925D2A35A /* [CP] Check Pods Manifest.lock */,
 				B0E78FD12024FDEF002DA8AF /* Sources */,
@@ -297,9 +306,9 @@
 			);
 			dependencies = (
 			);
-			name = FirebaseApp;
+			name = AmazeMe;
 			productName = FirebaseApp;
-			productReference = B0E78FD52024FDEF002DA8AF /* FirebaseApp.app */;
+			productReference = B0E78FD52024FDEF002DA8AF /* AmazeMe.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -322,7 +331,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B0E78FD02024FDEF002DA8AF /* Build configuration list for PBXProject "FirebaseApp" */;
+			buildConfigurationList = B0E78FD02024FDEF002DA8AF /* Build configuration list for PBXProject "AmazeMe" */;
 			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -335,7 +344,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B0E78FD42024FDEF002DA8AF /* FirebaseApp */,
+				B0E78FD42024FDEF002DA8AF /* AmazeMe */,
 			);
 		};
 /* End PBXProject section */
@@ -403,28 +412,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				B08C14EE202E703C0061819B /* UserProfile.swift in Sources */,
-				B0E79001202504FE002DA8AF /* SignUpViewController.swift in Sources */,
 				B0E78FFB202504E1002DA8AF /* InitialViewController.swift in Sources */,
 				B02B8CFD2229A82500BB76CC /* SeeNewPostsButton.swift in Sources */,
 				7B3F4BBE23932B2C00B63A3B /* MessageVC.swift in Sources */,
+				7B7E0B8E23BD639F0098134F /* ForgetPassword.swift in Sources */,
 				7B3F4BC523932B3700B63A3B /* MessagesCell.swift in Sources */,
 				7B3F4BC923932B3F00B63A3B /* Message.swift in Sources */,
 				B0E79004202504FE002DA8AF /* HelperExtensions.swift in Sources */,
+				7B7E0BBA23BD65910098134F /* BaseViewController.swift in Sources */,
 				B0E78FF92025025E002DA8AF /* HomeViewController.swift in Sources */,
 				507897812329B87C00957EC8 /* SWComboxSelectionView.swift in Sources */,
 				507897882329B87C00957EC8 /* NibView.swift in Sources */,
 				50425A7A231F2660004903E1 /* ProfileViewController.swift in Sources */,
 				7B3F4BC423932B3700B63A3B /* searchCell.swift in Sources */,
 				7B3F4BBF23932B2C00B63A3B /* SearchVC.swift in Sources */,
-				B0E79003202504FE002DA8AF /* MenuViewController.swift in Sources */,
 				B0E78FD92024FDEF002DA8AF /* AppDelegate.swift in Sources */,
 				507897802329B87C00957EC8 /* SWComboxSelectionCell.swift in Sources */,
 				507897842329B87C00957EC8 /* SWComboxView.swift in Sources */,
-				B0E79002202504FE002DA8AF /* LoginViewController.swift in Sources */,
 				B02F5958213334DE00D138B9 /* LoadingCell.swift in Sources */,
+				7B7E0B8D23BD639F0098134F /* Register.swift in Sources */,
 				7B3F4BCB23932B3F00B63A3B /* MessageDetail.swift in Sources */,
 				B08C14EC202E70080061819B /* UserService.swift in Sources */,
 				7B37890123A676A800E9599D /* SettingsListCell.swift in Sources */,
+				7B7E0B8C23BD639F0098134F /* Login.swift in Sources */,
 				7B3F4BCA23932B3F00B63A3B /* Search.swift in Sources */,
 				50000BEE236A4147000CC434 /* HostListViewCell.swift in Sources */,
 				5078977F2329B87C00957EC8 /* SWComboxTextSelection.swift in Sources */,
@@ -433,10 +443,12 @@
 				B08C14E1202CDF9B0061819B /* UserListViewCell.swift in Sources */,
 				B08C14E8202CE5EF0061819B /* Post.swift in Sources */,
 				B0330FFE2031700E00FE2203 /* ImageService.swift in Sources */,
+				7B7E0B9023BD63E10098134F /* Validations.swift in Sources */,
 				507897862329B87C00957EC8 /* SWComboxImageSelection.swift in Sources */,
 				7B3F4BC323932B3700B63A3B /* messageDetailCell.swift in Sources */,
 				7BC86CDE237ED9D30064A6F0 /* SettingsViewController.swift in Sources */,
 				5034C347235B44EA0033D8F2 /* BookingViewController.swift in Sources */,
+				7B7E0BBC23BD65A40098134F /* Alerts.swift in Sources */,
 				507897852329B87C00957EC8 /* UIViewEx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -620,7 +632,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B0E78FD02024FDEF002DA8AF /* Build configuration list for PBXProject "FirebaseApp" */ = {
+		B0E78FD02024FDEF002DA8AF /* Build configuration list for PBXProject "AmazeMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0E78FE52024FDEF002DA8AF /* Debug */,
@@ -629,7 +641,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B0E78FE72024FDEF002DA8AF /* Build configuration list for PBXNativeTarget "FirebaseApp" */ = {
+		B0E78FE72024FDEF002DA8AF /* Build configuration list for PBXNativeTarget "AmazeMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0E78FE82024FDEF002DA8AF /* Debug */,

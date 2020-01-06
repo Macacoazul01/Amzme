@@ -9,7 +9,6 @@ class HostListViewCell: UITableViewCell  {
     @IBOutlet weak var Hours: UILabel!
     @IBOutlet weak var Reject: UIButton!
     @IBOutlet weak var Accept: UIButton!
-    @IBOutlet weak var UserText: UILabel!
     @IBOutlet weak var Star1: UIImageView!
     @IBOutlet weak var Star2: UIImageView!
     @IBOutlet weak var Star3: UIImageView!
@@ -31,7 +30,6 @@ class HostListViewCell: UITableViewCell  {
         self.post = post
         UserName.text = post.author.username
         City.text = post.author.city
-        UserText.text = post.author.description
         Star1.alpha = 1
         Star2.alpha = 1
         Star3.alpha = 1

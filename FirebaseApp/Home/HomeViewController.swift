@@ -1,13 +1,14 @@
 import Foundation
 import UIKit
 import Firebase
-import SwiftKeychainWrapper
+
 
 class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     @IBOutlet weak var ProfileButton: UIBarButtonItem!
-    var typeposts:String!
+    var typeposts = UserDefaults.standard.object(forKey: "type") as! String
+    var currentusr = UserDefaults.standard.object(forKey: "uid") as! String
     var tableView:UITableView!
     var cellHeights: [IndexPath : CGFloat] = [:]
     var namenib:String!
@@ -15,14 +16,10 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
     var fetchingMore = false
     var endReached = false
     let leadingScreensForBatching:CGFloat = 3.0
-    
     var refreshControl:UIRefreshControl!
-    
     var seeNewPostsButton:SeeNewPostsButton!
     var seeNewPostsButtonTopAnchor:NSLayoutConstraint!
-    
     var lastUploadedPostID:String?
-    
     var postsRef:DatabaseReference {
         return Database.database().reference().child("posts")
     }
@@ -54,24 +51,20 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        resetusr()
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        let teste = UserService.currentUserProfile
-        typeposts = teste?.typeuser ?? "3"
-        tableView = UITableView(frame: view.bounds, style: .plain)
-        tableView.backgroundColor = UIColor(white: 0.90,alpha:1.0)
         if typeposts == "3"{
             namenib = "UserListViewCell"
         }
         else {
             namenib = "HostListViewCell"
-            //enquanto nao corrigir os erros vai ficar assim
-            //namenib = "UserListViewCell"
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        tableView = UITableView(frame: view.bounds, style: .plain)
+        tableView.backgroundColor = UIColor(white: 0.90,alpha:1.0)
+        
         let cellNib = UINib(nibName: namenib, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "postCell")
         tableView.register(LoadingCell.self, forCellReuseIdentifier: "loadingCell")
@@ -119,7 +112,11 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
         beginBatchFetch()
         listenForNewPosts()
     }
-    
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: {
+            super.dismiss(animated: flag, completion: completion)
+        })
+    }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
@@ -146,7 +143,6 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     @objc func handleRefresh() {
-        print("Refresh!")
         let value:String
         if typeposts == "3"{
             value = "1"
@@ -164,23 +160,28 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
                     let data = childSnapshot.value as? [String:Any],
                     let post = Post.parse(childSnapshot.key, data),
                     childSnapshot.key != firstPost?.id {
-                    if post.typepost  == value {
+                    if post.typepost  == value && post.id != self.currentusr {
                         tempPosts.insert(post, at: 0)
                     }
                 }
             }
-            
-            self.posts.insert(contentsOf: tempPosts, at: 0)
-            
-            let newIndexPaths = (0..<tempPosts.count).map { i in
-                return IndexPath(row: i, section: 0)
+            if tempPosts.count > 0 {
+                self.posts.insert(contentsOf: tempPosts, at: 0)
+                
+                let newIndexPaths = (0..<tempPosts.count).map { i in
+                    return IndexPath(row: i, section: 0)
+                }
+                
+                self.refreshControl.endRefreshing()
+                self.tableView.insertRows(at: newIndexPaths, with: .top)
+                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                
+                self.listenForNewPosts()
+            }
+            else {
+                self.toggleSeeNewPostsButton(hidden: true)
             }
             
-            self.refreshControl.endRefreshing()
-            self.tableView.insertRows(at: newIndexPaths, with: .top)
-            self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-            
-            self.listenForNewPosts()
             
         })
     }
@@ -202,7 +203,7 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
                     let data = childSnapshot.value as? [String:Any],
                     let post = Post.parse(childSnapshot.key, data),
                     childSnapshot.key != lastPost?.id {
-                    if post.typepost  == value {
+                    if post.typepost  == value && post.id != self.currentusr{
                         tempPosts.insert(post, at: 0)
                     }
                 }
@@ -213,8 +214,22 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     @IBAction func handleLogout(_ sender:Any) {
-         KeychainWrapper.standard.removeObject(forKey: "uid")
-        try! Auth.auth().signOut()
+         let title = "Are you sure you want to log out?"
+         let alert = UIAlertController(title: nil, message: title, preferredStyle: .actionSheet)
+         alert.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (_) in
+             do{
+                try Auth.auth().signOut()
+                UserDefaults.standard.set(false, forKey: "logged")
+                Database.database().reference().removeAllObservers()
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let conroller = UINavigationController(rootViewController: Login())
+                appDelegate.window?.rootViewController = conroller
+             } catch {
+                 debugPrint("Error Occurred while logging out!")
+             }
+         }))
+         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+         present(alert, animated: true, completion: nil)
     }
     
     
@@ -320,32 +335,6 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
-    func resetusr(){
-        let verid = KeychainWrapper.standard.string(forKey: "uid")
-        if verid == nil {
-            Auth.auth().addStateDidChangeListener { auth, user in
-            
-                if user != nil {
-                    UserService.observeUserProfile(user!.uid) { userProfile in
-                        UserService.currentUserProfile = userProfile
-                        KeychainWrapper.standard.set(user!.uid, forKey: "uid")
-                    }
-                }
-                else {
-                    UserService.currentUserProfile = nil
-                }
-            }
-        }
-        else {
-            if UserService.currentUserProfile == nil {
-                UserService.observeUserProfile(verid!) { userProfile in
-                    UserService.currentUserProfile = userProfile
-                }
-            }
-            
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "BookingSegue"{
             if let destination = segue.destination as? BookingViewController {
@@ -356,15 +345,16 @@ class HomeViewController:UIViewController, UITableViewDelegate, UITableViewDataS
         
         else if let newPostNavBar = segue.destination as? UINavigationController,
             let newPostVC = newPostNavBar.viewControllers[0] as? ProfileViewController {
-            //let newPostVC = newPostNavBar.viewControllers[0] as? NewPostViewController {
-            
             newPostVC.delegate = self
         }
     }
 }
 
 extension HomeViewController: NewPostVCDelegate {
-    func didUploadPost(withID id: String) {
-        self.lastUploadedPostID = id
+    func didUploadPost(withID idf: String) {
+        self.lastUploadedPostID = idf
+        posts = posts.filter { idf == $0.id }
+        self.tableView.reloadData()
+        beginBatchFetch()
     }
 }

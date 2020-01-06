@@ -372,11 +372,9 @@ class ProfileViewController: UIViewController, UITextViewDelegate {
                 userref.setValue(userObject)
                 
                 if self.typeusr == "1" || self.typeusr == "2"{
-
-                    let postRef = ref.child("posts/\(uid)")
-                    //let postRef = ref.child("posts").childByAutoId()
+                    
                     let postObject = [
-                        "author": [
+                        uid: ["author": [
                             "uid": uid,
                             "username": self.UsernameText.text ?? "Username",
                             "photoURL": urlstring,
@@ -389,10 +387,13 @@ class ProfileViewController: UIViewController, UITextViewDelegate {
                             "typefee": self.typefee ?? "3"
                         ],
                         "timestamp": [".sv":"timestamp"],"typepost": "1"
-                        ] as [String:Any]
+                        ]]
+                    Database.database().reference().child("posts").updateChildValues(postObject, withCompletionBlock: { error, ref in
                     
-                    postRef.setValue(postObject, withCompletionBlock: { error, ref in
                         if error == nil {
+                            UserService.observeUserProfile(uid) { userProfile in
+                                UserService.currentUserProfile = userProfile
+                            }
                             self.delegate?.didUploadPost(withID: ref.key!)
                         } else {
                             self.resetForm(why: error!.localizedDescription)
@@ -487,7 +488,7 @@ extension ProfileViewController : SWComboxViewDelegate {
     
     //MARK: delegate
     func comboxSelected(atIndex index:Int, object: Any, combox withCombox: SWComboxView) {
-        print("index - \(index) selected - \(object) combo \(withCombox)")
+        //print("index - \(index) selected - \(object) combo \(withCombox)")
         selecionada = object as? String
     }
 }
