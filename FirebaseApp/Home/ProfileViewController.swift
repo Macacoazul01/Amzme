@@ -6,7 +6,14 @@ protocol NewPostVCDelegate {
     func didUploadPost(withID id:String)
 }
 
-class ProfileViewController: UIViewController, UITextViewDelegate {
+protocol LocationDelegate
+{
+    func Locationset(type: String)
+}
+
+class ProfileViewController: UIViewController, UITextViewDelegate,LocationDelegate {
+    
+    
     var selecionada : String?
     var botoes : [String]!
     var typeusr : String!
@@ -169,6 +176,7 @@ class ProfileViewController: UIViewController, UITextViewDelegate {
         // Open Image Picker
         self.present(imagePicker, animated: true, completion: nil)
     }
+    
     
     @IBAction func checkBtnClick(_ sender: UIButton) {
         //typefee
@@ -459,6 +467,14 @@ class ProfileViewController: UIViewController, UITextViewDelegate {
         }
     }
 
+    @IBAction func pushmaps(_ sender: Any) {
+        let vc = MapScreen(nibName: "MapScreen", bundle: nil)
+        vc.delegate = self
+    }
+    func Locationset(type: String) {
+        HomeTownText.text = type
+    }
+    
     @IBAction func handleCancelButton() {
         self.dismiss(animated: true, completion: nil)
     }
