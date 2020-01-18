@@ -6,12 +6,8 @@ protocol NewPostVCDelegate {
     func didUploadPost(withID id:String)
 }
 
-protocol LocationDelegate
-{
-    func Locationset(type: String)
-}
 
-class ProfileViewController: UIViewController, UITextViewDelegate,LocationDelegate {
+class ProfileViewController: UIViewController, UITextViewDelegate {
     
     
     var selecionada : String?
@@ -466,14 +462,15 @@ class ProfileViewController: UIViewController, UITextViewDelegate,LocationDelega
             i+=1;
         }
     }
-
-    @IBAction func pushmaps(_ sender: Any) {
-        let vc = MapScreen(nibName: "MapScreen", bundle: nil)
-        vc.delegate = self
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SetLocation"{
+            let vc = MapScreen(nibName: "MapScreen", bundle: nil)
+            vc.delegate = self
+        }
+        
+        
     }
-    func Locationset(type: String) {
-        HomeTownText.text = type
-    }
+    
     
     @IBAction func handleCancelButton() {
         self.dismiss(animated: true, completion: nil)
@@ -539,4 +536,10 @@ fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [U
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
     return input.rawValue
+}
+
+extension ProfileViewController: LocationDelegate {
+    func Locationset(type: String) {
+        self.HomeTownText.text = type
+    }
 }

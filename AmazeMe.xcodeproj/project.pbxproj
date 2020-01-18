@@ -41,7 +41,7 @@
 		7B7E0BBC23BD65A40098134F /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7E0BBB23BD65A40098134F /* Alerts.swift */; };
 		7BC86CDE237ED9D30064A6F0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC86CDD237ED9D30064A6F0 /* SettingsViewController.swift */; };
 		7BDA70BC236E2FE2004D3079 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BDA70BB236E2FE2004D3079 /* GoogleService-Info.plist */; };
-		A532550CD0244022A8D278B5 /* Pods_FirebaseApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F272F2CC379BF3D39E51153 /* Pods_FirebaseApp.framework */; };
+		85EB6448D8F587FB0109DF6A /* Pods_AmazeMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0FE0F6378C5042DC1352783 /* Pods_AmazeMe.framework */; };
 		B02B8CFD2229A82500BB76CC /* SeeNewPostsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B8CFC2229A82400BB76CC /* SeeNewPostsButton.swift */; };
 		B02F5958213334DE00D138B9 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F5956213334DE00D138B9 /* LoadingCell.swift */; };
 		B0330FFE2031700E00FE2203 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0330FFD2031700E00FE2203 /* ImageService.swift */; };
@@ -60,6 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		359D5D3FE17220B8522E6345 /* Pods-AmazeMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmazeMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-AmazeMe/Pods-AmazeMe.release.xcconfig"; sourceTree = "<group>"; };
 		50000BEC236A4147000CC434 /* HostListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostListViewCell.swift; sourceTree = "<group>"; };
 		50000BED236A4147000CC434 /* HostListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HostListViewCell.xib; sourceTree = "<group>"; };
 		5034C346235B44EA0033D8F2 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +76,7 @@
 		5078977D2329B87C00957EC8 /* SWComboxTextSelection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWComboxTextSelection.xib; sourceTree = "<group>"; };
 		5078977E2329B87C00957EC8 /* NibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
 		50D26408230E0F930082522A /* UserListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserListViewCell.xib; sourceTree = "<group>"; };
+		64E9B91466CC2160B3157854 /* Pods-AmazeMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmazeMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmazeMe/Pods-AmazeMe.debug.xcconfig"; sourceTree = "<group>"; };
 		6580728F4CE95C2C81CE978D /* Pods-FirebaseApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseApp/Pods-FirebaseApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7B37890023A676A800E9599D /* SettingsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsListCell.swift; sourceTree = "<group>"; };
 		7B3F4BBA23932B2C00B63A3B /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
@@ -95,7 +97,6 @@
 		7B7E0BBB23BD65A40098134F /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		7BC86CDD237ED9D30064A6F0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7BDA70BB236E2FE2004D3079 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		8F272F2CC379BF3D39E51153 /* Pods_FirebaseApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B02B8CFC2229A82400BB76CC /* SeeNewPostsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeNewPostsButton.swift; sourceTree = "<group>"; };
 		B02F5956213334DE00D138B9 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		B0330FFD2031700E00FE2203 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
@@ -113,6 +114,7 @@
 		B0E78FFA202504E1002DA8AF /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		B0E78FFF202504FD002DA8AF /* HelperExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperExtensions.swift; sourceTree = "<group>"; };
 		B0E79000202504FE002DA8AF /* RoundedWhiteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedWhiteButton.swift; sourceTree = "<group>"; };
+		C0FE0F6378C5042DC1352783 /* Pods_AmazeMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmazeMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F518532BBBD9EEF6AAD40CDD /* Pods-FirebaseApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseApp/Pods-FirebaseApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,7 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A532550CD0244022A8D278B5 /* Pods_FirebaseApp.framework in Frameworks */,
+				85EB6448D8F587FB0109DF6A /* Pods_AmazeMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +133,7 @@
 		181A7215BDC45820EBC9F544 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8F272F2CC379BF3D39E51153 /* Pods_FirebaseApp.framework */,
+				C0FE0F6378C5042DC1352783 /* Pods_AmazeMe.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -187,6 +189,8 @@
 			children = (
 				6580728F4CE95C2C81CE978D /* Pods-FirebaseApp.debug.xcconfig */,
 				F518532BBBD9EEF6AAD40CDD /* Pods-FirebaseApp.release.xcconfig */,
+				64E9B91466CC2160B3157854 /* Pods-AmazeMe.debug.xcconfig */,
+				359D5D3FE17220B8522E6345 /* Pods-AmazeMe.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -383,7 +387,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FirebaseApp-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-AmazeMe-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -396,15 +400,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FirebaseApp/Pods-FirebaseApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-AmazeMe/Pods-AmazeMe-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FirebaseApp/Pods-FirebaseApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-AmazeMe/Pods-AmazeMe-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FirebaseApp/Pods-FirebaseApp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AmazeMe/Pods-AmazeMe-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -593,7 +597,7 @@
 		};
 		B0E78FE82024FDEF002DA8AF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6580728F4CE95C2C81CE978D /* Pods-FirebaseApp.debug.xcconfig */;
+			baseConfigurationReference = 64E9B91466CC2160B3157854 /* Pods-AmazeMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -614,7 +618,7 @@
 		};
 		B0E78FE92024FDEF002DA8AF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F518532BBBD9EEF6AAD40CDD /* Pods-FirebaseApp.release.xcconfig */;
+			baseConfigurationReference = 359D5D3FE17220B8522E6345 /* Pods-AmazeMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -918,8 +918,7 @@
                                                 </constraints>
                                                 <state key="normal" image="Search"/>
                                                 <connections>
-                                                    <action selector="pushmaps:" destination="KZp-Ub-9JU" eventType="touchUpInside" id="fgE-km-fgk"/>
-                                                    <segue destination="dh8-ED-1uf" kind="show" id="cYS-6d-f1c"/>
+                                                    <segue destination="dh8-ED-1uf" kind="show" identifier="SetLocation" id="cYS-6d-f1c"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8S-jj-swU">
